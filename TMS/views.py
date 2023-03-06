@@ -36,7 +36,9 @@ def register(request):
         price = request.POST.get('price')
         discount = request.POST.get('discount')
         total = request.POST.get('total')
-
+        print(NAME,gender,join_date,subject,class_name,phone_number,price,discount,total)
+        return render(request,'tms/register.html')
+    return render(request,'tms/register.html')
 
 def base(request):
     return render(request, 'tms/base.html')
@@ -46,10 +48,7 @@ def dropdowns(request):
     return render(request, 'tms/pages/ui-features/dropdowns.html')
 def topology(request):
     return render(request, 'tms/pages/ui-features/typography.html')
-def basic_elements(request):
-    return render(request, 'tms/pages/forms/basic_elements.html')
-def basic_table(request):
-    return render(request, 'tms/pages/tables/basic_table.html')
+
 def charts(request):
     return render(request, 'tms/pages/charts/chartjs.html')
 def mdi(request):
@@ -67,3 +66,12 @@ def documentation(request):
 def register(request):
     return render(request,'tms/register.html')
 
+def basic_element(request):
+    return render(request,'tms/pages/forms/basic_elements.html')
+def display(request):
+    return render(request,'tms/display.html')
+
+def stud_details(request):
+    return render(request,'tms/stud_details.html')
+def admin(request):
+    return render(request,'adminpage')

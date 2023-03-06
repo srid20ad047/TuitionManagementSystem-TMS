@@ -3,7 +3,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.loginUser, name='login'),
     path('logoutUser',views.logoutUser,name='logoutUser'),
     path('index', views.index, name='index'),
@@ -11,8 +10,7 @@ urlpatterns = [
     path('buttons', views.buttons, name='buttons'),
     path('dropdowns', views.dropdowns, name='dropdowns'),
     path('topology', views.topology, name='topology'),
-    path('basic_elements', views.basic_elements, name='basic_elements'),
-    path('basic_table', views.basic_table, name='basic_table'),
+    path('basic_element', views.basic_element, name='basic_element'),
     path('charts', views.charts, name='charts'),
     path('mdi', views.mdi, name='mdi'),
     path('blank_page', views.blank_page, name='blank_page'),
@@ -20,4 +18,7 @@ urlpatterns = [
     path('error_500', views.error_500, name='error_500'),
     path('documentation', views.documentation, name='documentation'),
     path('register', views.register, name='register'),
+    path('display', views.display, name='display'),
+    path('details', views.stud_details, name='details'),
+    path('admin', views.admin, name='adminpage'),
 ]

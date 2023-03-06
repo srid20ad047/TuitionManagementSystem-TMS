@@ -207,157 +207,256 @@
           </div>
         </nav>
 
-
           <!-- NAVBAR END -->
-
 
 
           <!-- MAIN CONTENT -->
 
-
         <div class="main-panel">
 
         <div class="col-12 grid-margin">
+
+
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">REGISTRATION</h4>
-                    <form class="form-sample" method="post">
-                        {% csrf_token %}
-                        <br>
-                      <p class="card-description"> PERSONAL INFO </p>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">NAME</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" style="color: white" name="NAME">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">CBSE / STATE</label>
-                            <div class="col-sm-9">
-                              <select class="form-control" style="color: white" name="MEDIUM">
-                                  <option selected>SELECT...</option>
-                                <option>CBSE</option>
-                                <option>STATE BOARD</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">GENDER</label>
-                            <div class="col-sm-9">
-                              <select class="form-control" style="color: white" name="gender">
-                                  <option selected>SELECT...</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">DATE OF JOIN</label>
-                            <div class="col-sm-9">
-                              <input class="form-control" placeholder="dd/mm/yyyy" type="date" style="color: white" name="join_date">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
+                    <h4 class="card-title" style="text-align: center;color: cyan"> 9TH DETAILS </h4>
+{#                    <p class="card-description"> Add class <code>.table-dark</code>#}
+                      <br>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th> # </th>
+                            <th> NAME </th>
+                            <th> STUD_ID </th>
+                            <th> MEDIUM </th>
+                              <th> GENDER </th>
+                              <th> DATE OF JOIN </th>
+                              <th> SUBJECT </th>
+                              <th> PHONE NUMBER </th>
+                              <th> PRICE </th>
+                              <th> TOTAL </th>
+                              <th> VIEW </th>
 
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">SUBJECT</label>
-                            <div class="col-sm-9">
-                              <select class="form-control" style="color: white" name="subject">
-                                  <option selected>SELECT...</option>
-                                <option>SCIENCE</option>
-                                <option>MATHS</option>
-                                <option>SCIENCE & MATHS</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td> 1 </td>
+                            <td> SRIDHAR </td>
+                            <td> T001 </td>
+                            <td> CBSE </td>
+                              <td> MALE </td>
+                            <td> 7-03-2023 </td>
+                            <td> SCIENCE & MATHS </td>
+                            <td> 9840272470 </td>
+                              <td> 1600 </td>
+                            <td> 1500 </td>
+                              <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info "style="cursor: pointer;">VIEW</label></></td>
+                          </tr>
+                        <tr>
+                            <td> 2 </td>
+                            <td> SRIDHAR </td>
+                            <td> T002 </td>
+                            <td> STATE </td>
+                              <td> MALE </td>
+                            <td> 5-03-2023 </td>
+                            <td> SCIENCE </td>
+                            <td> 8248233162 </td>
+                              <td> 800 </td>
+                            <td> 800 </td>
+                            <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info" style="cursor: pointer;">VIEW</label></a></td>
+                          </tr>
 
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">CLASS</label>
-                            <div class="col-sm-2">
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" id="class" value="9th" name="class_name"> 9TH </label>
-                              </div>
-                            </div>
-                            <div class="col-sm-2">
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="class_name" id="ten" value="10th"> 10TH </label>
-                              </div>
-                            </div>
-                               <div class="col-sm-2">
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="class_name" id="eleven" value="11th"> 11TH </label>
-                              </div>
-                            </div>
-                              <div class="col-sm-2">
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="class_name" id="twelve" value="12th"> 12TH </label>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">PHONE NUMBER</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" name="phone_number">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">PRICE</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" name="price">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">DISCOUNT</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" name="discount">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">TOTAL</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" name="total">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                        <br>
-                        <div style="position: relative;height: 70px;width: 100%;">
-                            <div style="position:absolute;bottom:25%;right: 50%;">
-                                <button class="btn btn-primary btn-rounded btn-fw" type="submit">SUBMIT</button>
-                            </div>
-                        </div>
-                    </form>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;color: cyan"> 10TH DETAILS </h4>
+{#                    <p class="card-description"> Add class <code>.table-dark</code>#}
+                      <br>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th> # </th>
+                            <th> NAME </th>
+                            <th> STUD_ID </th>
+                            <th> MEDIUM </th>
+                              <th> GENDER </th>
+                              <th> DATE OF JOIN </th>
+                              <th> SUBJECT </th>
+                              <th> PHONE NUMBER </th>
+                              <th> PRICE </th>
+                              <th> TOTAL </th>
+                              <th> VIEW </th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td> 1 </td>
+                            <td> SRIDHAR </td>
+                            <td> T001 </td>
+                            <td> CBSE </td>
+                              <td> MALE </td>
+                            <td> 7-03-2023 </td>
+                            <td> SCIENCE & MATHS </td>
+                            <td> 9840272470 </td>
+                              <td> 1600 </td>
+                            <td> 1500 </td>
+                              <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info" style="cursor: pointer;">VIEW</label></a></td>
+                          </tr>
+                        <tr>
+                            <td> 2 </td>
+                            <td> SRIDHAR </td>
+                            <td> T002 </td>
+                            <td> STATE </td>
+                              <td> MALE </td>
+                            <td> 5-03-2023 </td>
+                            <td> SCIENCE </td>
+                            <td> 8248233162 </td>
+                              <td> 800 </td>
+                            <td> 800 </td>
+                            <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info" style="cursor: pointer;">VIEW</label></a></td>
+                          </tr>
+
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;color: cyan"> 11TH DETAILS </h4>
+{#                    <p class="card-description"> Add class <code>.table-dark</code>#}
+                      <br>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th> # </th>
+                            <th> NAME </th>
+                            <th> STUD_ID </th>
+                            <th> MEDIUM </th>
+                              <th> GENDER </th>
+                              <th> DATE OF JOIN </th>
+                              <th> SUBJECT </th>
+                              <th> PHONE NUMBER </th>
+                              <th> PRICE </th>
+                              <th> TOTAL </th>
+                                <th> VIEW </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td> 1 </td>
+                            <td> SRIDHAR </td>
+                            <td> T001 </td>
+                            <td> CBSE </td>
+                              <td> MALE </td>
+                            <td> 7-03-2023 </td>
+                            <td> SCIENCE & MATHS </td>
+                            <td> 9840272470 </td>
+                              <td> 1600 </td>
+                            <td> 1500 </td>
+                              <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info" style="cursor: pointer;">VIEW</label></a></td>
+                          </tr>
+                        <tr>
+                            <td> 2 </td>
+                            <td> SRIDHAR </td>
+                            <td> T002 </td>
+                            <td> STATE </td>
+                              <td> MALE </td>
+                            <td> 5-03-2023 </td>
+                            <td> SCIENCE </td>
+                            <td> 8248233162 </td>
+                              <td> 800 </td>
+                            <td> 800 </td>
+                            <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info" style="cursor: pointer;">VIEW</label></a></td>
+                          </tr>
+
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;color: cyan">12TH DETAILS </h4>
+{#                    <p class="card-description"> Add class <code>.table-dark</code>#}
+                      <br>
+                    <div class="table-responsive">
+                      <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th> # </th>
+                            <th> NAME </th>
+                            <th> STUD_ID </th>
+                            <th> MEDIUM </th>
+                              <th> GENDER </th>
+                              <th> DATE OF JOIN </th>
+                              <th> SUBJECT </th>
+                              <th> PHONE NUMBER </th>
+                              <th> PRICE </th>
+                              <th> TOTAL </th>
+                              <th> VIEW </th>
+
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td> 1 </td>
+                            <td> SRIDHAR </td>
+                            <td> T001 </td>
+                            <td> CBSE </td>
+                              <td> MALE </td>
+                            <td> 7-03-2023 </td>
+                            <td> SCIENCE & MATHS </td>
+                            <td> 9840272470 </td>
+                              <td> 1600 </td>
+                            <td> 1500 </td>
+                              <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info" style="cursor: pointer;">VIEW</label></a></td>
+                          </tr>
+                        <tr>
+                            <td> 2 </td>
+                            <td> SRIDHAR </td>
+                            <td> T002 </td>
+                            <td> STATE </td>
+                              <td> MALE </td>
+                            <td> 5-03-2023 </td>
+                            <td> SCIENCE </td>
+                            <td> 8248233162 </td>
+                              <td> 800 </td>
+                            <td> 800 </td>
+                            <td><a href="{% url 'details' %}" style="text-decoration: none;"><label class="badge badge-info" style="cursor: pointer;">VIEW</label></a></td>
+                          </tr>
+
+
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
