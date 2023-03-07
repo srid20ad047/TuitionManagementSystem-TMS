@@ -115,24 +115,14 @@
               <span class="menu-title">DISPLAY</span>
             </a>
           </li>
-
-{#          <li class="nav-item menu-items">#}
-{#            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">#}
-{#              <span class="menu-icon">#}
-{#                <i class="mdi mdi-security"></i>#}
-{#              </span>#}
-{#              <span class="menu-title">User Pages</span>#}
-{#              <i class="menu-arrow"></i>#}
-{#            </a>#}
-{#            <div class="collapse" id="auth">#}
-{#              <ul class="nav flex-column sub-menu">#}
-{#                <li class="nav-item"> <a class="nav-link" href="{% url 'blank_page' %}"> Blank Page </a></li>#}
-{#                <li class="nav-item"> <a class="nav-link" href="{% url 'error_404' %}"> 404 </a></li>#}
-{#                <li class="nav-item"> <a class="nav-link" href="{% url 'error_500' %}"> 500 </a></li>#}
-{#                <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}"> Login </a></li>#}
-{#              </ul>#}
-{#            </div>#}
-{#          </li>#}
+            <li class="nav-item menu-items">
+            <a class="nav-link" href="{% url 'attendance' %}">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">ATTENDANCE</span>
+            </a>
+          </li>
             <li class="nav-item menu-items">
             <a class="nav-link" href="{% url 'adminpage' %}">
               <span class="menu-icon">
@@ -195,8 +185,6 @@
                       <p class="preview-subject mb-1">Log out</p>
                     </div>
                   </a>
-{#                  <div class="dropdown-divider"></div>#}
-{#                  <p class="p-3 mb-0 text-center">Advanced settings</p>#}
 
                 </div>
               </li>

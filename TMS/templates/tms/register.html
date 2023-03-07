@@ -115,24 +115,14 @@
               <span class="menu-title">DISPLAY</span>
             </a>
           </li>
-
-{#          <li class="nav-item menu-items">#}
-{#            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">#}
-{#              <span class="menu-icon">#}
-{#                <i class="mdi mdi-security"></i>#}
-{#              </span>#}
-{#              <span class="menu-title">User Pages</span>#}
-{#              <i class="menu-arrow"></i>#}
-{#            </a>#}
-{#            <div class="collapse" id="auth">#}
-{#              <ul class="nav flex-column sub-menu">#}
-{#                <li class="nav-item"> <a class="nav-link" href="{% url 'blank_page' %}"> Blank Page </a></li>#}
-{#                <li class="nav-item"> <a class="nav-link" href="{% url 'error_404' %}"> 404 </a></li>#}
-{#                <li class="nav-item"> <a class="nav-link" href="{% url 'error_500' %}"> 500 </a></li>#}
-{#                <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}"> Login </a></li>#}
-{#              </ul>#}
-{#            </div>#}
-{#          </li>#}
+            <li class="nav-item menu-items">
+            <a class="nav-link" href="{% url 'attendance' %}">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">ATTENDANCE</span>
+            </a>
+          </li>
             <li class="nav-item menu-items">
             <a class="nav-link" href="{% url 'adminpage' %}">
               <span class="menu-icon">
@@ -168,9 +158,6 @@
               <li class="nav-item dropdown d-none d-lg-block">
                 <a class="nav-link btn btn-success create-new-button" href="{% url 'register' %}">+ Add New Student</a>
               </li>
-
-
-
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
@@ -183,7 +170,6 @@
                   <h6 class="p-3 mb-0">PROFILE</h6>
                   <div class="dropdown-divider"></div>
 
-
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item" href="{% url 'logoutUser' %}">
                     <div class="preview-thumbnail">
@@ -195,9 +181,6 @@
                       <p class="preview-subject mb-1">Log out</p>
                     </div>
                   </a>
-{#                  <div class="dropdown-divider"></div>#}
-{#                  <p class="p-3 mb-0 text-center">Advanced settings</p>#}
-
                 </div>
               </li>
             </ul>
@@ -211,7 +194,6 @@
           <!-- NAVBAR END -->
 
 
-
           <!-- MAIN CONTENT -->
 
 
@@ -221,7 +203,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">REGISTRATION</h4>
-                    <form class="form-sample" method="post">
+                    <form class="form-sample" method="post" action="{% url 'register' %}">
                         {% csrf_token %}
                         <br>
                       <p class="card-description"> PERSONAL INFO </p>
@@ -230,7 +212,7 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">NAME</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" style="color: white" name="NAME">
+                              <input type="text" class="form-control" style="color: white" name="name">
                             </div>
                           </div>
                         </div>
@@ -238,10 +220,10 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">CBSE / STATE</label>
                             <div class="col-sm-9">
-                              <select class="form-control" style="color: white" name="MEDIUM">
+                              <select class="form-control" style="color: white" name="medium">
                                   <option selected>SELECT...</option>
-                                <option>CBSE</option>
-                                <option>STATE BOARD</option>
+                                <option value="cbse">CBSE</option>
+                                <option value="state">STATE BOARD</option>
                               </select>
                             </div>
                           </div>
@@ -413,5 +395,6 @@
     <script src="{% static 'ssets/js/select2.js' %}"></script>
   <script src="{% static 'assets/vendors/select2/select2.min.js' %}"></script>
     <script src="{% static 'assets/vendors/typeahead.js/typeahead.bundle.min.js' %}"></script>
+
   </body>
 </html>

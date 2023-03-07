@@ -136,6 +136,7 @@
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
 
+
           <!-- NAV BAR START -->
 
         <nav class="navbar p-0 fixed-top d-flex flex-row">
@@ -191,78 +192,104 @@
           </div>
         </nav>
 
+
           <!-- NAVBAR END -->
 
 
           <!-- MAIN CONTENT -->
 
+
         <div class="main-panel">
 
-        <div class="col-12 grid-margin">
-
 
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;color: cyan"> 9TH DETAILS </h4>
-                      <br>
-                    </p>
+                    <h4 class="card-title"style="text-align: center;">9TH ATTENDANCE</h4>
                     <div class="table-responsive">
-                      <table class="table table-dark">
+                      <table class="table table-bordered">
                         <thead>
                           <tr>
                             <th> STUD_ID </th>
                             <th> NAME </th>
                             <th> MEDIUM </th>
-                              <th> GENDER </th>
-                              <th> DATE OF JOIN </th>
                               <th> SUBJECT </th>
-                              <th> PHONE NUMBER </th>
-                              <th> PRICE </th>
-                              <th> DISCOUNT </th>
-                              <th> TOTAL </th>
                               <th> VIEW </th>
-
                           </tr>
                         </thead>
                         <tbody>
-                        {% for nine in data_nine %}
                           <tr>
-                            <td>
-                                {{ nine.STUDENT_ID }}
-                            </td>
-                            <td>
-                                {{ nine.NAME }}
-                            </td>
-                            <td>
-                                {{ nine.MEDIUM }}
-                            </td>
-                            <td>
-                                {{ nine.GENDER }}
-                            </td>
-                              <td>
-                                  {{ nine.JOIN_DATE }}
-                              </td>
-                            <td>
-                                {{ nine.SUBJECT}}
-                            </td>
-                            <td>
-                                {{ nine.PHONE_NUMBER}}
-                            </td>
-                            <td>
-                                {{ nine.PRICE }}
-                            </td>
-                              <td>
-                                  {{ nine.DISCOUNT }}
-                              </td>
-                              <td>
-                                  {{ nine.TOTAL }}
-                              </td>
-                              <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info "style="cursor: pointer;">VIEW</label></></td>
+                            <td> C </td>
+                            <td> Herman Beck </td>
+                            <td> $ 77.99 </td>
+                            <td> May 15, 2015 </td>
                           </tr>
-                        {% endfor %}
-
-
+                          <tr>
+                            <td> 2 </td>
+                            <td> Messsy Adam </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td> $245.30 </td>
+                            <td> July 1, 2015 </td>
+                          </tr>
+                          <tr>
+                            <td> 3 </td>
+                            <td> John Richards </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td> $138.00 </td>
+                            <td> Apr 12, 2015 </td>
+                          </tr>
+                          <tr>
+                            <td> 4 </td>
+                            <td> Peter Meggik </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td> $ 77.99 </td>
+                            <td> May 15, 2015 </td>
+                          </tr>
+                          <tr>
+                            <td> 5 </td>
+                            <td> Edward </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td> $ 160.25 </td>
+                            <td> May 03, 2015 </td>
+                          </tr>
+                          <tr>
+                            <td> 6 </td>
+                            <td> John Doe </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td> $ 123.21 </td>
+                            <td> April 05, 2015 </td>
+                          </tr>
+                          <tr>
+                            <td> 7 </td>
+                            <td> Henry Tom </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td> $ 150.00 </td>
+                            <td> June 16, 2015 </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -271,204 +298,6 @@
               </div>
 
 
-            <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;color: cyan"> 10TH DETAILS </h4>
-                      <br>
-                    </p>
-                    <div class="table-responsive">
-                      <table class="table table-dark">
-                        <thead>
-                          <tr>
-                            <th> STUD_ID </th>
-                            <th> NAME </th>
-                            <th> MEDIUM </th>
-                              <th> GENDER </th>
-                              <th> DATE OF JOIN </th>
-                              <th> SUBJECT </th>
-                              <th> PHONE NUMBER </th>
-                              <th> PRICE </th>
-                              <th> DISCOUNT </th>
-                              <th> TOTAL </th>
-                              <th> VIEW </th>
-
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {% for ten in data_ten %}
-                          <tr>
-                            <td>
-                                {{ ten.STUDENT_ID }}
-                            </td>
-                            <td>
-                                {{ ten.NAME }}
-                            </td>
-                            <td>
-                                {{ ten.MEDIUM }}
-                            </td>
-                            <td>
-                                {{ ten.GENDER }}
-                            </td>
-                              <td>
-                                  {{ ten.JOIN_DATE }}
-                              </td>
-                            <td>
-                                {{ ten.SUBJECT}}
-                            </td>
-                            <td>
-                                {{ ten.PHONE_NUMBER}}
-                            </td>
-                            <td>
-                                {{ ten.PRICE }}
-                            </td>
-                              <td>
-                                  {{ ten.DISCOUNT }}
-                              </td>
-                              <td>
-                                  {{ ten.TOTAL }}
-                              </td>
-                              <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info "style="cursor: pointer;">VIEW</label></></td>
-                          </tr>
-                        {% endfor %}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;color: cyan"> 11TH DETAILS </h4>
-                      <br>
-                    </p>
-                    <div class="table-responsive">
-                      <table class="table table-dark">
-                        <thead>
-                          <tr>
-                            <th> STUD_ID </th>
-                            <th> NAME </th>
-                            <th> MEDIUM </th>
-                              <th> GENDER </th>
-                              <th> DATE OF JOIN </th>
-                              <th> SUBJECT </th>
-                              <th> PHONE NUMBER </th>
-                              <th> PRICE </th>
-                              <th> DISCOUNT </th>
-                              <th> TOTAL </th>
-                                <th> VIEW </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {% for eleven in data_eleven %}
-                          <tr>
-                            <td>
-                                {{ eleven.STUDENT_ID }}
-                            </td>
-                            <td>
-                                {{ eleven.NAME }}
-                            </td>
-                            <td>
-                                {{ eleven.MEDIUM }}
-                            </td>
-                            <td>
-                                {{ eleven.GENDER }}
-                            </td>
-                              <td>
-                                  {{ eleven.JOIN_DATE }}
-                              </td>
-                            <td>
-                                {{ eleven.SUBJECT}}
-                            </td>
-                            <td>
-                                {{ eleven.PHONE_NUMBER}}
-                            </td>
-                            <td>
-                                {{ eleven.PRICE }}
-                            </td>
-                              <td>
-                                  {{ eleven.DISCOUNT }}
-                              </td>
-                              <td>
-                                  {{ eleven.TOTAL }}
-                              </td>
-                              <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info "style="cursor: pointer;">VIEW</label></></td>
-                          </tr>
-                        {% endfor %}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;color: cyan">12TH DETAILS </h4>
-                      <br>
-                    <div class="table-responsive">
-                      <table class="table table-dark">
-                        <thead>
-                          <tr>
-                            <th> STUD_ID </th>
-                            <th> NAME </th>
-                            <th> MEDIUM </th>
-                              <th> GENDER </th>
-                              <th> DATE OF JOIN </th>
-                              <th> SUBJECT </th>
-                              <th> PHONE NUMBER </th>
-                              <th> PRICE </th>
-                              <th> DISCOUNT </th>
-                              <th> TOTAL </th>
-                              <th> VIEW </th>
-
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {% for twelve in data_twelve %}
-                          <tr>
-                            <td>
-                                {{ twelve.STUDENT_ID }}
-                            </td>
-                            <td>
-                                {{ twelve.NAME }}
-                            </td>
-                            <td>
-                                {{ twelve.MEDIUM }}
-                            </td>
-                            <td>
-                                {{ twelve.GENDER }}
-                            </td>
-                              <td>
-                                  {{ twelve.JOIN_DATE }}
-                              </td>
-                            <td>
-                                {{ twelve.SUBJECT}}
-                            </td>
-                            <td>
-                                {{ twelve.PHONE_NUMBER}}
-                            </td>
-                            <td>
-                                {{ twelve.PRICE }}
-                            </td>
-                              <td>
-                                  {{ twelve.DISCOUNT }}
-                              </td>
-                              <td>
-                                  {{ twelve.TOTAL }}
-                              </td>
-                              <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info "style="cursor: pointer;">VIEW</label></></td>
-                          </tr>
-                        {% endfor %}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
           <footer class="footer" style="position: fixed; bottom: 0;width: 100%; background-color: black;">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
@@ -484,10 +313,6 @@
       </div>
 
     </div>
-
-
-
-
 
 
 
@@ -515,11 +340,11 @@
     <!-- Custom js for chart page -->
     <script src="{% static 'assets/js/chart.js' %}"></script>
     <!-- End custom js for chart page -->
-
     <script src="{% static 'assets/js/file-upload.js' %}"></script>
     <script src="{% static 'assets/js/typeahead.js' %}"></script>
     <script src="{% static 'ssets/js/select2.js' %}"></script>
   <script src="{% static 'assets/vendors/select2/select2.min.js' %}"></script>
     <script src="{% static 'assets/vendors/typeahead.js/typeahead.bundle.min.js' %}"></script>
+
   </body>
 </html>

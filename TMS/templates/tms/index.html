@@ -113,24 +113,14 @@
             </a>
           </li>
 
-
-{#          <li class="nav-item menu-items">#}
-{#            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">#}
-{#              <span class="menu-icon">#}
-{#                <i class="mdi mdi-security"></i>#}
-{#              </span>#}
-{#              <span class="menu-title">User Pages</span>#}
-{#              <i class="menu-arrow"></i>#}
-{#            </a>#}
-{#            <div class="collapse" id="auth">#}
-{#              <ul class="nav flex-column sub-menu">#}
-{#                <li class="nav-item"> <a class="nav-link" href="{% url 'blank_page' %}"> Blank Page </a></li>#}
-{#                <li class="nav-item"> <a class="nav-link" href="{% url 'error_404' %}"> 404 </a></li>#}
-{#                <li class="nav-item"> <a class="nav-link" href="{% url 'error_500' %}"> 500 </a></li>#}
-{#                <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}"> Login </a></li>#}
-{#              </ul>#}
-{#            </div>#}
-{#          </li>#}
+            <li class="nav-item menu-items">
+            <a class="nav-link" href="{% url 'attendance' %}">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">ATTENDANCE</span>
+            </a>
+          </li>
             <li class="nav-item menu-items">
             <a class="nav-link" href="{% url 'adminpage' %}">
               <span class="menu-icon">
@@ -165,9 +155,6 @@
                 <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"  href="{% url 'register' %}">+ Create New Project</a>
               </li>
 
-
-
-
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
@@ -180,17 +167,6 @@
                   <h6 class="p-3 mb-0">PROFILE</h6>
                   <div class="dropdown-divider"></div>
 
-{#                  <a class="dropdown-item preview-item">#}
-{#                    <div class="preview-thumbnail">#}
-{#                      <div class="preview-icon bg-dark rounded-circle">#}
-{#                        <i class="mdi mdi-settings text-success"></i>#}
-{#                      </div>#}
-{#                    </div>#}
-{#                    <div class="preview-item-content">#}
-{#                      <p class="preview-subject mb-1">Settings</p>#}
-{#                    </div>#}
-{#                  </a>#}
-
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item" href="{% url 'logoutUser' %}">
                     <div class="preview-thumbnail">
@@ -202,9 +178,7 @@
                       <p class="preview-subject mb-1">Log out</p>
                     </div>
                   </a>
-{#                  <div class="dropdown-divider"></div>#}
-{#                  <p class="p-3 mb-0 text-center">Advanced settings</p>#}
-
+{#
                 </div>
               </li>
             </ul>
@@ -212,7 +186,6 @@
               <span class="mdi mdi-format-line-spacing"></span>
             </button>
           </div>
-
 
 
 

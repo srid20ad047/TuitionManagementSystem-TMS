@@ -21,4 +21,5 @@ urlpatterns = [
     path('display', views.display, name='display'),
     path('details', views.stud_details, name='details'),
     path('admin', views.admin, name='adminpage'),
+    path('attendance', views.attendance, name='attendance'),
 ]
