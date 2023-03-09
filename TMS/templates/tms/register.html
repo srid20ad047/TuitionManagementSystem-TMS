@@ -124,6 +124,14 @@
             </a>
           </li>
             <li class="nav-item menu-items">
+            <a class="nav-link" href="{% url 'payment' %}">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">PAYMENT</span>
+            </a>
+          </li>
+            <li class="nav-item menu-items">
             <a class="nav-link" href="{% url 'adminpage' %}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
@@ -202,7 +210,7 @@
         <div class="col-12 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">REGISTRATION</h4>
+                    <h4 class="card-title" style="text-align: center;color: cyan">REGISTRATION</h4>
                     <form class="form-sample" method="post" action="{% url 'register' %}">
                         {% csrf_token %}
                         <br>
@@ -273,25 +281,25 @@
                             <div class="col-sm-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" id="class" value="9th" name="class_name"> 9TH </label>
+                                  <input type="radio" class="form-check-input" id="class" value="9th" name="class_name"> IX </label>
                               </div>
                             </div>
                             <div class="col-sm-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="class_name" id="ten" value="10th"> 10TH </label>
+                                  <input type="radio" class="form-check-input" name="class_name" id="ten" value="10th"> X </label>
                               </div>
                             </div>
                                <div class="col-sm-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="class_name" id="eleven" value="11th"> 11TH </label>
+                                  <input type="radio" class="form-check-input" name="class_name" id="eleven" value="11th"> XI </label>
                               </div>
                             </div>
                               <div class="col-sm-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="class_name" id="twelve" value="12th"> 12TH </label>
+                                  <input type="radio" class="form-check-input" name="class_name" id="twelve" value="12th"> XII </label>
                               </div>
                             </div>
                           </div>

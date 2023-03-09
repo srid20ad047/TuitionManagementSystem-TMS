@@ -124,6 +124,14 @@
             </a>
           </li>
             <li class="nav-item menu-items">
+            <a class="nav-link" href="{% url 'payment' %}">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">PAYMENT</span>
+            </a>
+          </li>
+            <li class="nav-item menu-items">
             <a class="nav-link" href="{% url 'adminpage' %}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
@@ -201,95 +209,173 @@
 
         <div class="main-panel">
 
+        <div class="col-12 grid-margin">
+
 
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title"style="text-align: center;">9TH ATTENDANCE</h4>
+                    <h4 class="card-title" style="text-align: center;color: cyan"> 9TH DETAILS </h4>
+                      <br>
+                    </p>
                     <div class="table-responsive">
-                      <table class="table table-bordered">
+                      <table class="table table-dark">
                         <thead>
                           <tr>
                             <th> STUD_ID </th>
                             <th> NAME </th>
-                            <th> MEDIUM </th>
-                              <th> SUBJECT </th>
-                              <th> VIEW </th>
+                              <th style="text-align: center"> ATTENDANCE </th>
+
                           </tr>
                         </thead>
                         <tbody>
+                        <form method="post" action="{% url 'attendance' '9' %}">
+                        {% csrf_token %}
+                        {% for nine in data_nine %}
                           <tr>
-                            <td> C </td>
-                            <td> Herman Beck </td>
-                            <td> $ 77.99 </td>
-                            <td> May 15, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 2 </td>
-                            <td> Messsy Adam </td>
                             <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
+                                {{ nine.STUDENT_ID }}
                             </td>
-                            <td> $245.30 </td>
-                            <td> July 1, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 3 </td>
-                            <td> John Richards </td>
                             <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
+                                {{ nine.NAME }}
                             </td>
-                            <td> $138.00 </td>
-                            <td> Apr 12, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 4 </td>
-                            <td> Peter Meggik </td>
                             <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                <form>
+                          <div class="form-group row" style="display: flex;justify-content: space-around;">
+                            <div class="col-sm-2" >
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" id="present" value="P" name="{{ nine.STUDENT_ID }}"> P </label>
                               </div>
+                            </div>
+                            <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ nine.STUDENT_ID }}" id="absent" value="AB "> AB </label>
+                              </div>
+                            </div>
+                               <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ nine.STUDENT_ID }}" id="tuition_leave" value="TL"> TL </label>
+                              </div>
+                            </div>
+                              <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ nine.STUDENT_ID }}" id="weak_off" value="WO"> WO </label>
+                              </div>
+                            </div>
+                              <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ nine.STUDENT_ID }}" id="holiday" value="HO"> HO </label>
+                              </div>
+                            </div>
+                              <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ nine.STUDENT_ID }}" id="festival_holiday" value="FH"> FH </label>
+                              </div>
+                            </div>
+                          </div>
+
                             </td>
-                            <td> $ 77.99 </td>
-                            <td> May 15, 2015 </td>
+
                           </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="3" style="text-align: center">
+                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            </td>
+
+                          </tr>
+                        </form>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;color: cyan"> 10TH DETAILS </h4>
+                      <br>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-dark">
+                        <thead>
                           <tr>
-                            <td> 5 </td>
-                            <td> Edward </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $ 160.25 </td>
-                            <td> May 03, 2015 </td>
+                            <th> STUD_ID </th>
+                            <th> NAME </th>
+                              <th style="text-align: center"> ATTENDANCE </th>
+
                           </tr>
+                        </thead>
+                        <tbody>
+                        <form method="post" action="{% url 'attendance' '10' %}">
+                        {% csrf_token %}
+                        {% for ten in data_ten %}
                           <tr>
-                            <td> 6 </td>
-                            <td> John Doe </td>
                             <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
+                                {{ ten.STUDENT_ID }}
                             </td>
-                            <td> $ 123.21 </td>
-                            <td> April 05, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 7 </td>
-                            <td> Henry Tom </td>
                             <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
+                                {{ ten.NAME }}
                             </td>
-                            <td> $ 150.00 </td>
-                            <td> June 16, 2015 </td>
+                            <td>
+                          <div class="form-group row" style="display: flex;justify-content: space-around;">
+                            <div class="col-sm-2" >
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" id="present" value="P" name="{{ ten.STUDENT_ID }}"> P </label>
+                              </div>
+                            </div>
+                            <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ ten.STUDENT_ID }}" id="absent" value="AB"> AB </label>
+                              </div>
+                            </div>
+                               <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ ten.STUDENT_ID }}" id="tuition_leave" value="TL"> TL </label>
+                              </div>
+                            </div>
+                              <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ ten.STUDENT_ID }}" id="weak_off" value="WO"> WO </label>
+                              </div>
+                            </div>
+                              <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ ten.STUDENT_ID }}" id="holiday" value="HO"> HO </label>
+                              </div>
+                            </div>
+                                <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ ten.STUDENT_ID }}" id="festival_holiday" value="FH"> FH </label>
+                              </div>
+                            </div>
+                          </div>
+                            </td>
                           </tr>
+                        {% endfor %}
+                             <tr>
+                            <td colspan="3" style="text-align: center">
+                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            </td>
+
+                          </tr>
+                        </form>
                         </tbody>
                       </table>
                     </div>
@@ -297,7 +383,174 @@
                 </div>
               </div>
 
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;color: cyan"> 11TH DETAILS </h4>
+                      <br>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th> STUD_ID </th>
+                            <th> NAME </th>
+                              <th style="text-align: center"> ATTENDANCE </th>
 
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <form method="post" action="{% url 'attendance' '11' %}">
+                        {% csrf_token %}
+                        {% for eleven in data_eleven %}
+                          <tr>
+                            <td>
+                                {{ eleven.STUDENT_ID }}
+                            </td>
+                            <td>
+                                {{ eleven.NAME }}
+                            </td>
+                            <td>
+                          <div class="form-group row" style="display: flex;justify-content: space-around;">
+                            <div class="col-sm-2" >
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" id="present" value="P" name="{{ eleven.STUDENT_ID }}"> P </label>
+                              </div>
+                            </div>
+                            <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ eleven.STUDENT_ID }}" id="absent" value="AB"> AB </label>
+                              </div>
+                            </div>
+                               <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ eleven.STUDENT_ID }}" id="tuition_leave" value="TL"> TL </label>
+                              </div>
+                            </div>
+                              <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ eleven.STUDENT_ID }}" id="weak_off" value="WO"> WO </label>
+                              </div>
+                            </div>
+                              <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ eleven.STUDENT_ID }}" id="holiday" value="HO"> HO </label>
+                              </div>
+                            </div>
+                                <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ eleven.STUDENT_ID }}" id="festival_holiday" value="FH"> FH </label>
+                              </div>
+                            </div>
+</div>                          </div>
+                            </td>
+                          </tr>
+                        {% endfor %}
+                             <tr>
+                            <td colspan="3" style="text-align: center">
+                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            </td>
+
+                          </tr>
+                  </form>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;color: cyan"> 12TH DETAILS </h4>
+
+                      <br>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th> STUD_ID </th>
+                            <th> NAME </th>
+                              <th style="text-align: center"> ATTENDANCE </th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <form method="post" action="{% url 'attendance' '12' %}">
+                        {% csrf_token %}
+                        {% for twelve in data_twelve %}
+                          <tr>
+                            <td>
+                                {{ twelve.STUDENT_ID }}
+                            </td>
+                            <td>
+                                {{ twelve.NAME }}
+                            </td>
+                            <td>
+                          <div class="form-group row" style="display: flex;justify-content: space-around;">
+                            <div class="col-sm-2" >
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" id="present" value="P" name="{{ twelve.STUDENT_ID }}"> P </label>
+                              </div>
+                            </div>
+                            <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ twelve.STUDENT_ID }}" id="absent" value="AB"> AB </label>
+                              </div>
+                            </div>
+                               <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ twelve.STUDENT_ID }}" id="tuition_leave" value="TL"> TL </label>
+                              </div>
+
+                            </div>
+                              <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ twelve.STUDENT_ID }}" id="weak_off" value="WO"> WO </label>
+                              </div>
+                            </div>
+                              <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ twelve.STUDENT_ID }}" id="holiday" value="HO"> HO </label>
+                              </div>
+                            </div>
+
+                                <div class="col-sm-2">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="{{ twelve.STUDENT_ID }}" id="festival_holiday" value="FH"> FH </label>
+                              </div>
+                            </div>
+                          </div>
+                            </td>
+                          </tr>
+                        {% endfor %}
+                             <tr>
+                            <td colspan="3" style="text-align: center">
+                                <button type="submit" class="btn btn-primary  mr-2">Submit</button>
+                            </td>
+
+                          </tr>
+                        </form>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
           <footer class="footer" style="position: fixed; bottom: 0;width: 100%; background-color: black;">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">

@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
-from .models import NinthClass,TenthClass,EleventhClass,TwelvethClass
-
+from .models import NinthClass,TenthClass,EleventhClass,TwelvethClass,IXPayment,XPayment,XIPayment,XIIPayment
+from datetime import datetime
 # Create your views here.
 
 def index(request):
@@ -26,6 +26,73 @@ def logoutUser(request):
     if request.user.is_authenticated:
         logout(request)
     return redirect('login')
+
+def attendance_call(request,title):
+    print(title)
+
+
+def payment(request):
+    if request.method == 'POST':
+        NAME = request.POST.get('name')
+        CLASS = request.POST.get('class')
+        DATE_OF_PAYMENT = request.POST.get('date_of_payment')
+        NET_AMOUNT_PAID = request.POST.get('net_amount_paid')
+        MODE_OF_PAYMENT = request.POST.get('mode_of_payment')
+
+        if (CLASS == "9th"):
+            if IXPayment.objects.count() < 10:
+                date = datetime.strptime(DATE_OF_PAYMENT, "%Y-%m-%d")
+                month = date.strftime("%b")
+                PAYMENT_ID= "IX-FEE-"+ month + "0"+ str(IXPayment.objects.count() + 1)
+                det = IXPayment(NAME=NAME,CLASS=CLASS,DATE_OF_PAYMENT=DATE_OF_PAYMENT,NET_AMOUNT_PAID=NET_AMOUNT_PAID,MODE_OF_PAYMENT=MODE_OF_PAYMENT,PAYMENT_RECEIPT_ID=PAYMENT_ID)
+                det.save()
+            elif IXPayment.objects.count() >= 10:
+                date = datetime.strptime(DATE_OF_PAYMENT, "%Y-%m-%d")
+                month = date.strftime("%b")
+                PAYMENT_ID = "IX-FEE-" + month + str(IXPayment.objects.count() + 1)
+                det = IXPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID)
+                det.save()
+        if (CLASS == "10th"):
+            if XPayment.objects.count() < 10:
+                date = datetime.strptime(DATE_OF_PAYMENT, "%Y-%m-%d")
+                month = date.strftime("%b")
+                PAYMENT_ID= "X-FEE-"+ month + "0"+ str(XPayment.objects.count() + 1)
+                det = XPayment(NAME=NAME,CLASS=CLASS,DATE_OF_PAYMENT=DATE_OF_PAYMENT,NET_AMOUNT_PAID=NET_AMOUNT_PAID,MODE_OF_PAYMENT=MODE_OF_PAYMENT,PAYMENT_RECEIPT_ID=PAYMENT_ID)
+                det.save()
+            elif XPayment.objects.count() >= 10:
+                date = datetime.strptime(DATE_OF_PAYMENT, "%Y-%m-%d")
+                month = date.strftime("%b")
+                PAYMENT_ID = "X-FEE-" + month + str(XPayment.objects.count() + 1)
+                det = XPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID)
+                det.save()
+        if (CLASS == "11th"):
+            if XIPayment.objects.count() < 10:
+                date = datetime.strptime(DATE_OF_PAYMENT, "%Y-%m-%d")
+                month = date.strftime("%b")
+                PAYMENT_ID= "XI-FEE-"+ month + "0"+ str(XIPayment.objects.count() + 1)
+                det = XIPayment(NAME=NAME,CLASS=CLASS,DATE_OF_PAYMENT=DATE_OF_PAYMENT,NET_AMOUNT_PAID=NET_AMOUNT_PAID,MODE_OF_PAYMENT=MODE_OF_PAYMENT,PAYMENT_RECEIPT_ID=PAYMENT_ID)
+                det.save()
+            elif XIPayment.objects.count() >= 10:
+                date = datetime.strptime(DATE_OF_PAYMENT, "%Y-%m-%d")
+                month = date.strftime("%b")
+                PAYMENT_ID = "XI-FEE-" + month + str(XIPayment.objects.count() + 1)
+                det = XIPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID)
+                det.save()
+        if (CLASS == "12th"):
+            if XIIPayment.objects.count() < 10:
+                date = datetime.strptime(DATE_OF_PAYMENT, "%Y-%m-%d")
+                month = date.strftime("%b")
+                PAYMENT_ID= "XII-FEE-"+ month + "0"+ str(XIIPayment.objects.count() + 1)
+                det = XIIPayment(NAME=NAME,CLASS=CLASS,DATE_OF_PAYMENT=DATE_OF_PAYMENT,NET_AMOUNT_PAID=NET_AMOUNT_PAID,MODE_OF_PAYMENT=MODE_OF_PAYMENT,PAYMENT_RECEIPT_ID=PAYMENT_ID)
+                det.save()
+            elif XIIPayment.objects.count() >= 10:
+                date = datetime.strptime(DATE_OF_PAYMENT, "%Y-%m-%d")
+                month = date.strftime("%b")
+                PAYMENT_ID = "XII-FEE-" + month + str(XIIPayment.objects.count() + 1)
+                det = XIIPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID)
+                det.save()
+        return render(request,'tms/payment.html')
+    return render(request,'tms/payment.html')
 def register(request):
     if request.method == 'POST':
         NAME = request.POST.get('name')
@@ -38,7 +105,7 @@ def register(request):
         price = request.POST.get('price')
         discount = request.POST.get('discount')
         total = request.POST.get('total')
-        print(NAME,gender,join_date,subject,class_name,phone_number,price,discount,total)
+
         if (class_name=="9th"):
             if(Medium=="cbse" and NinthClass.objects.count()<10):
                 Student_id = "IXCBSE0"+str(NinthClass.objects.count()+1)
@@ -115,26 +182,7 @@ def register(request):
     return render(request,'tms/register.html')
 def base(request):
     return render(request, 'tms/base.html')
-def buttons(request):
-    return render(request, 'tms/pages/ui-features/buttons.html')
-def dropdowns(request):
-    return render(request, 'tms/pages/ui-features/dropdowns.html')
-def topology(request):
-    return render(request, 'tms/pages/ui-features/typography.html')
-def charts(request):
-    return render(request, 'tms/pages/charts/chartjs.html')
-def mdi(request):
-    return render(request, 'tms/pages/icons/mdi.html')
-def blank_page(request):
-    return render(request, 'tms/pages/samples/blank-page.html')
-def error_404(request):
-    return render(request, 'tms/pages/samples/error-404.html')
-def error_500(request):
-    return render(request, 'tms/pages/samples/error-500.html')
-def documentation(request):
-    return render(request, 'tms/pages/documentation/documentation.html')
-def basic_element(request):
-    return render(request,'tms/pages/forms/basic_elements.html')
+
 def display(request):
     return render(request,'tms/display.html',{"data_nine":NinthClass.objects.all(),"data_ten":TenthClass.objects.all(),"data_eleven":EleventhClass.objects.all(),"data_twelve":TwelvethClass.objects.all()})
 def stud_details(request):
@@ -142,4 +190,8 @@ def stud_details(request):
 def admin(request):
     return render(request,'adminpage')
 def attendance(request):
-    return render(request,'tms/attendance.html')
+    return render(request,'tms/attendance.html',{'data_nine':NinthClass.objects.all(),'data_ten':TenthClass.objects.all(),'data_eleven':EleventhClass.objects.all(),'data_twelve':TwelvethClass.objects.all()})
+
+
+
+

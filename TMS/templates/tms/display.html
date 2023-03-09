@@ -124,6 +124,14 @@
             </a>
           </li>
             <li class="nav-item menu-items">
+            <a class="nav-link" href="{% url 'payment' %}">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">PAYMENT</span>
+            </a>
+          </li>
+            <li class="nav-item menu-items">
             <a class="nav-link" href="{% url 'adminpage' %}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
@@ -219,9 +227,8 @@
                               <th> SUBJECT </th>
                               <th> PHONE NUMBER </th>
                               <th> PRICE </th>
-                              <th> DISCOUNT </th>
+{#                              <th> DISCOUNT </th>#}
                               <th> TOTAL </th>
-                              <th> VIEW </th>
 
                           </tr>
                         </thead>
@@ -252,14 +259,13 @@
                             <td>
                                 {{ nine.PRICE }}
                             </td>
-                              <td>
-                                  {{ nine.DISCOUNT }}
-                              </td>
+{#                              <td>#}
+{#                                  {{ nine.DISCOUNT }}#}
+{#                              </td>#}
                               <td>
                                   {{ nine.TOTAL }}
                               </td>
-                              <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info "style="cursor: pointer;">VIEW</label></></td>
-                          </tr>
+                              </tr>
                         {% endfor %}
 
 
@@ -289,9 +295,8 @@
                               <th> SUBJECT </th>
                               <th> PHONE NUMBER </th>
                               <th> PRICE </th>
-                              <th> DISCOUNT </th>
+{#                              <th> DISCOUNT </th>#}
                               <th> TOTAL </th>
-                              <th> VIEW </th>
 
                           </tr>
                         </thead>
@@ -322,14 +327,13 @@
                             <td>
                                 {{ ten.PRICE }}
                             </td>
-                              <td>
-                                  {{ ten.DISCOUNT }}
-                              </td>
+{#                              <td>#}
+{#                                  {{ ten.DISCOUNT }}#}
+{#                              </td>#}
                               <td>
                                   {{ ten.TOTAL }}
                               </td>
-                              <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info "style="cursor: pointer;">VIEW</label></></td>
-                          </tr>
+                              </tr>
                         {% endfor %}
                         </tbody>
                       </table>
@@ -356,9 +360,8 @@
                               <th> SUBJECT </th>
                               <th> PHONE NUMBER </th>
                               <th> PRICE </th>
-                              <th> DISCOUNT </th>
+{#                              <th> DISCOUNT </th>#}
                               <th> TOTAL </th>
-                                <th> VIEW </th>
                           </tr>
                         </thead>
                         <tbody>
@@ -388,14 +391,13 @@
                             <td>
                                 {{ eleven.PRICE }}
                             </td>
-                              <td>
-                                  {{ eleven.DISCOUNT }}
-                              </td>
+{#                              <td>#}
+{#                                  {{ eleven.DISCOUNT }}#}
+{#                              </td>#}
                               <td>
                                   {{ eleven.TOTAL }}
                               </td>
-                              <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info "style="cursor: pointer;">VIEW</label></></td>
-                          </tr>
+                              </tr>
                         {% endfor %}
                         </tbody>
                       </table>
@@ -421,9 +423,8 @@
                               <th> SUBJECT </th>
                               <th> PHONE NUMBER </th>
                               <th> PRICE </th>
-                              <th> DISCOUNT </th>
+{#                              <th> DISCOUNT </th>#}
                               <th> TOTAL </th>
-                              <th> VIEW </th>
 
                           </tr>
                         </thead>
@@ -454,14 +455,13 @@
                             <td>
                                 {{ twelve.PRICE }}
                             </td>
-                              <td>
-                                  {{ twelve.DISCOUNT }}
-                              </td>
+{#                              <td>#}
+{#                                  {{ twelve.DISCOUNT }}#}
+{#                              </td>#}
                               <td>
                                   {{ twelve.TOTAL }}
                               </td>
-                              <td><a href="{% url 'details' %}" style="text-decoration: none"><label class="badge badge-info "style="cursor: pointer;">VIEW</label></></td>
-                          </tr>
+                              </tr>
                         {% endfor %}
                         </tbody>
                       </table>
