@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
   <head>
     <!-- Required meta tags -->
 
@@ -220,9 +220,8 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">NAME</label>
                             <div class="col-sm-9">
-                              <select class="form-control" style="color: white" name="name">
-                                  <option selected>SELECT...</option>
-                                <option>SRIDHAR</option>
+                              <select class="form-control" style="color: white" name="name" id="name_selector" onclick="callid()">
+                                  <option selected>SELECT THE CLASS...</option>
                               </select>
                             </div>
                           </div>
@@ -244,25 +243,25 @@
                             <div class="col-sm-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" id="class" value="9th" name="class"> IX </label>
+                                  <input type="radio" class="form-check-input" id="class" value="9th" name="class" onclick="callby(9)" > IX </label>
                               </div>
                             </div>
                             <div class="col-sm-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="class" id="ten" value="10th"> X </label>
+                                  <input type="radio" class="form-check-input" name="class" id="class" value="10th" onclick="callby(10)" > X </label>
                               </div>
                             </div>
                                <div class="col-sm-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="class" id="eleven" value="11th"> XI </label>
+                                  <input type="radio" class="form-check-input" name="class" id="eleven" value="11th" onclick="callby(11)" > XI </label>
                               </div>
                             </div>
                               <div class="col-sm-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="class" id="twelve" value="12th"> XII </label>
+                                  <input type="radio" class="form-check-input" name="class" id="twelve" value="12th" onclick="callby(12)" > XII </label>
                               </div>
                             </div>
                           </div>
@@ -278,64 +277,21 @@
                       </div>
                       <div class="row">
 
-{#                        <div class="col-md-6">#}
-{#                          <div class="form-group row">#}
-{#                            <label class="col-sm-3 col-form-label">SUBJECT</label>#}
-{#                            <div class="col-sm-9">#}
-{#                              <select class="form-control" style="color: white" name="subject">#}
-{#                                  <option selected>SELECT...</option>#}
-{#                                <option>SCIENCE</option>#}
-{#                                <option>MATHS</option>#}
-{#                                <option>SCIENCE & MATHS</option>#}
-{#                              </select>#}
-{#                            </div>#}
-{#                          </div>#}
-{#                        </div>#}
-
-{#                        <div class="col-md-6">#}
-{#                          <div class="form-group row">#}
-{#                            <label class="col-sm-3 col-form-label">CLASS</label>#}
-{#                            <div class="col-sm-2">#}
-{#                              <div class="form-check">#}
-{#                                <label class="form-check-label">#}
-{#                                  <input type="radio" class="form-check-input" id="class" value="9th" name="class_name"> IX </label>#}
-{#                              </div>#}
-{#                            </div>#}
-{#                            <div class="col-sm-2">#}
-{#                              <div class="form-check">#}
-{#                                <label class="form-check-label">#}
-{#                                  <input type="radio" class="form-check-input" name="class_name" id="ten" value="10th"> X </label>#}
-{#                              </div>#}
-{#                            </div>#}
-{#                               <div class="col-sm-2">#}
-{#                              <div class="form-check">#}
-{#                                <label class="form-check-label">#}
-{#                                  <input type="radio" class="form-check-input" name="class_name" id="eleven" value="11th"> XI </label>#}
-{#                              </div>#}
-{#                            </div>#}
-{#                              <div class="col-sm-2">#}
-{#                              <div class="form-check">#}
-{#                                <label class="form-check-label">#}
-{#                                  <input type="radio" class="form-check-input" name="class_name" id="twelve" value="12th"> XII </label>#}
-{#                              </div>#}
-{#                            </div>#}
-{#                          </div>#}
-{#                        </div>#}
                       </div>
                       <div class="row">
-{#                        <div class="col-md-6">#}
-{#                          <div class="form-group row">#}
-{#                            <label class="col-sm-3 col-form-label">STUDENT_ID</label>#}
-{#                            <div class="col-sm-9">#}
-{#                              <input type="text" class="form-control" name="phone_number">#}
-{#                            </div>#}
-{#                          </div>#}
-{#                        </div>#}
                         <div class="col-md-6">
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">DATE OF PAYMENT</label>
                             <div class="col-sm-9">
                               <input type="date" class="form-control" name="date_of_payment">
+                            </div>
+                          </div>
+                        </div>
+                          <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">STUDENT_ID</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="student_id" id="stud_id">
                             </div>
                           </div>
                         </div>
@@ -384,12 +340,40 @@
         </div>
 
 
+
          <!-- MANI CONTENT END -->
 
       </div>
 
     </div>
+    <div type="text" style="display: none" id="value9">
+        {{ val1 }}
+    </div>
+    <div type="text" style="display: none" id="value10">
+        {{ val2 }}
+    </div>
+    <div type="text" style="display: none" id="value11">
+        {{ val3 }}
+    </div>
+    <div type="text" style="display: none" id="value12">
+        {{ val4 }}
+    </div>
+    <div type="text" style="display: none" id="id1">
+        {{ id1 }}
+    </div>
 
+{#    <div type="text" style="display: none" id="value19">#}
+{#        {{ stud_id1 }}#}
+{#    </div>#}
+{#    <div type="text" style="display: none" id="value110">#}
+{#        {{ stud_id2 }}#}
+{#    </div>#}
+{#    <div type="text" style="display: none" id="value111">#}
+{#        {{ stud_id3 }}#}
+{#    </div>#}
+{#    <div type="text" style="display: none" id="value112">#}
+{#        {{ stud_id4 }}#}
+{#    </div>#}
 
 
 
@@ -426,6 +410,44 @@
     <script src="{% static 'ssets/js/select2.js' %}"></script>
   <script src="{% static 'assets/vendors/select2/select2.min.js' %}"></script>
     <script src="{% static 'assets/vendors/typeahead.js/typeahead.bundle.min.js' %}"></script>
+    <script>
+        function callby(n) {
+            console.log(n);
+                key = "value" + n.toString();
+                value = document.getElementById(key).innerText;
+                value = value.replaceAll(" ", "").slice(3, -3).split("','");
+
+                console.log(value);
+                result = document.getElementById("name_selector");
+                result.innerHTML = "<option selected>SELECT...</option>";
+                for (i = 0; i < value.length; i++) {
+                    result.innerHTML += ` <option onclick="callid(`+i+`)">` + value[i] + `</option> `;
+                }
+        }
+        function callid(n){
+
+            console.log(n);
+        }
+        {#function callid(n){#}
+        {#    console.log(n);#}
+        {#    key = "value1" + n.toString();#}
+        {#    key1 = "value" + n.toString();#}
+        {#    value1 = document.getElementById(key).innerText;#}
+        {#    value1 = value1.replace(" ", "").slice(3, -3).split("','");#}
+        {#    name1 = document.getElementById(key1).innerText;#}
+        {#    name1 = name1.replace(" ", "").slice(3, -3).split("','");#}
+        {#    console.log(value1);#}
+        {#    name = document.getElementById("name_selector").value;#}
+        {#    result = document.getElementById("stud_id");#}
+        {#    for(val i=0;i<value1.length;i++){#}
+        {#        if  name == name1[i]{#}
+        {#            result.innerHTML = value1[i];#}
+        {#        }#}
+        {#    }#}
+    </script>>
+
+    </script>
+
 
   </body>
 </html>

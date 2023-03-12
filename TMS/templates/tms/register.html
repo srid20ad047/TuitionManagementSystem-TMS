@@ -265,11 +265,8 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">SUBJECT</label>
                             <div class="col-sm-9">
-                              <select class="form-control" style="color: white" name="subject">
-                                  <option selected>SELECT...</option>
-                                <option>SCIENCE</option>
-                                <option>MATHS</option>
-                                <option>SCIENCE & MATHS</option>
+                              <select class="form-control" style="color: white" name="subject" id="subject" onchange="mySubject()">
+                                  <option selected>SELECT THE CLASS</option>
                               </select>
                             </div>
                           </div>
@@ -281,25 +278,25 @@
                             <div class="col-sm-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" id="class" value="9th" name="class_name"> IX </label>
+                                  <input type="radio" class="form-check-input" id="nine" value="9th" name="class_name" onclick="get(9)"> IX </label>
                               </div>
                             </div>
                             <div class="col-sm-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="class_name" id="ten" value="10th"> X </label>
+                                  <input type="radio" class="form-check-input" name="class_name" id="ten" value="10th" onclick="get(10)"> X </label>
                               </div>
                             </div>
                                <div class="col-sm-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="class_name" id="eleven" value="11th"> XI </label>
+                                  <input type="radio" class="form-check-input" name="class_name" id="eleven" value="11th" onclick="get(11)"> XI </label>
                               </div>
                             </div>
                               <div class="col-sm-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="class_name" id="twelve" value="12th"> XII </label>
+                                  <input type="radio" class="form-check-input" name="class_name" id="twelve" value="12th" onclick="get(12)"> XII </label>
                               </div>
                             </div>
                           </div>
@@ -310,7 +307,7 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">PHONE NUMBER</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="phone_number">
+                              <input type="tel" class="form-control" name="phone_number" pattern="[0-9]{10}">
                             </div>
                           </div>
                         </div>
@@ -318,7 +315,7 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">PRICE</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="price">
+                              <input type="text" class="form-control" name="price" id="price" >
                             </div>
                           </div>
                         </div>
@@ -328,7 +325,7 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">DISCOUNT</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="discount">
+                              <input type="text" class="form-control" name="discount" id="discount" onkeyup="arr()">
                             </div>
                           </div>
                         </div>
@@ -336,7 +333,7 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">TOTAL</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="total">
+                              <input type="text" class="form-control" name="total" id="total">
                             </div>
                           </div>
                         </div>
@@ -403,6 +400,91 @@
     <script src="{% static 'ssets/js/select2.js' %}"></script>
   <script src="{% static 'assets/vendors/select2/select2.min.js' %}"></script>
     <script src="{% static 'assets/vendors/typeahead.js/typeahead.bundle.min.js' %}"></script>
+
+  <script>
+      function mySubject(){
+          var x = document.getElementById("subject").value;
+          {#console.log(x);#}
+          var price = document.getElementById("price");
+          if(x ==="MATHS"){
+              price.value= 500;
+          }
+          else if(x ==="SCIENCE"){
+              price.value= 500;
+          }
+          else if(x ==="SCIENCE & MATHS"){
+              price.value= 1500;
+          }
+          else if(x ==="PHYSICS"){
+              price.value= 1000;
+          }
+          else if(x ==="CHEMISTRY"){
+              price.value= 1000;
+          }
+          else if(x ==="BIOLOGY"){
+              price.value= 1000;
+          }
+          else if(x ==="PHYSICS , CHEMISTRY"){
+              price.value= 1500;
+          }
+          else if(x ==="PHYSICS , MATHS"){
+              price.value= 1500;
+          }
+          else if(x =="PHYSICS , BIOLOGY"){
+              price.value= 1500;
+          }
+          else if(x ==="CHEMISTRY , MATHS"){
+              price.value= 1500;
+          }
+          else if(x =="CHEMISTRY , BIOLOGY"){
+              price.value= 1500;
+          }
+          else if(x =="MATHS , BIOLOGY"){
+              price.value= 1000;
+          }
+          else if(x ==="PHYSICS , CHEMISTRY , MATHS"){
+              price.value= 2000;
+          }
+          else if(x ==="PHYSICS , CHEMISTRY , BIOLOGY"){
+              price.value= 2000;
+          }
+          else if(x ==="PHYSICS , MATHS , BIOLOGY"){
+              price.value=1500;
+          }
+          else if(x ==="CHEMISTRY , MATHS , BIOLOGY"){
+              price.value=2000;
+          }
+            else if(x ==="PHYSICS , CHEMISTRY , MATHS , BIOLOGY"){
+                price.value=2500;
+            }
+            else{
+                price.value="";
+          }
+      }
+      function get(n){
+          if(n==9 || n==10){
+              var k = document.getElementById("subject");
+              k.innerHTML = "<option selected>SELECT...<option value='SCIENCE'>SCIENCE</option><option value='MATHS'>MATHS</option><option value='SCIENCE & MATHS'>SCIENCE & MATHS</option>";
+          }
+          if(n==11 || n==12){
+              var k = document.getElementById("subject");
+              k.innerHTML = "<option selected>SELECT...<option value='PHYSICS'>PHYSICS</option><option value='CHEMISTRY'>CHEMISTRY</option><option value='MATHS'>MATHS</option><option value='BIOLOGY'>BIOLOGY</option><option value='PHYSICS , CHEMISTRY'>PHYSICS , CHEMISTRY</option><option value='PHYSICS , MATHS'>PHYSICS , MATHS</option><option value='PHYSICS , BIOLOGY'>PHYSICS , BIOLOGY</option><option value='CHEMISTRY , MATHS'>CHEMISTRY , MATHS</option><option value='CHEMISTRY , BIOLOGY'>CHEMISTRY , BIOLOGY</option><option value='MATHS , BIOLOGY'>MATHS , BIOLOGY</option><option value='PHYSICS , CHEMISTRY , MATHS'>PHYSICS , CHEMISTRY , MATHS</option><option value='PHYSICS , CHEMISTRY , BIOLOGY'>PHYSICS , CHEMISTRY , BIOLOGY</option><option value='PHYSICS , MATHS , BIOLOGY'>PHYSICS , MATHS , BIOLOGY</option><option value='CHEMISTRY , MATHS , BIOLOGY'>CHEMISTRY , MATHS , BIOLOGY</option><option value='PHYSICS , CHEMISTRY , MATHS , BIOLOGY'>PHYSICS , CHEMISTRY , MATHS , BIOLOGY</option>";
+          }
+      }
+  </script>
+  <script>
+      function arr(){
+          var x = document.getElementById("discount").value;
+          var price = document.getElementById("price").value;
+          var total = price - x;
+          console.log(total);
+            document.getElementById("total").value = total;
+      }
+      {#var price = document.getElementById("price").value;#}
+      {#var discount = document.getElementById("discount").value;#}
+      {#var total = price- discount;#}
+      {#  document.getElementById("total").value = total;#}
+  </script>
 
   </body>
 </html>

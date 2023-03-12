@@ -216,59 +216,63 @@
                       <br>
                     </p>
                     <div class="table-responsive">
-                      <table class="table table-dark">
+                      <table class="table table-dark" id="table1">
                         <thead>
-                          <tr>
-                            <th> STUD_ID </th>
-                            <th> NAME </th>
-                            <th> MEDIUM </th>
-                              <th> GENDER </th>
-                              <th> DATE OF JOIN </th>
-                              <th> SUBJECT </th>
-                              <th> PHONE NUMBER </th>
-                              <th> PRICE </th>
-{#                              <th> DISCOUNT </th>#}
-                              <th> TOTAL </th>
+                          <tr id="tr1">
+                            <th id="th1"> STUD_ID </th>
+                            <th id="th1"> NAME </th>
+                            <th id="th1"> MEDIUM </th>
+                              <th id="th1"> GENDER </th>
+                              <th id="th1"> DATE OF JOIN </th>
+                              <th id="th1"> SUBJECT </th>
+                              <th id="th1"> PHONE NUMBER </th>
+                              <th id="th1"> PRICE </th>
+                              <th id="th1"> DISCOUNT </th>
+                              <th id="th1"> TOTAL </th>
 
                           </tr>
                         </thead>
                         <tbody>
                         {% for nine in data_nine %}
-                          <tr>
-                            <td>
+                          <tr id="tr1">
+                            <td  id="td1">
                                 {{ nine.STUDENT_ID }}
                             </td>
-                            <td>
+                            <td id="td1">
                                 {{ nine.NAME }}
                             </td>
-                            <td>
+                            <td id="td1">
                                 {{ nine.MEDIUM }}
                             </td>
-                            <td>
+                            <td id="td1">
                                 {{ nine.GENDER }}
                             </td>
-                              <td>
+                              <td id="td1">
                                   {{ nine.JOIN_DATE }}
                               </td>
-                            <td>
+                            <td id="td1">
                                 {{ nine.SUBJECT}}
                             </td>
-                            <td>
+                            <td id="td1">
                                 {{ nine.PHONE_NUMBER}}
                             </td>
-                            <td>
+                            <td id="td1">
                                 {{ nine.PRICE }}
                             </td>
-{#                              <td>#}
-{#                                  {{ nine.DISCOUNT }}#}
-{#                              </td>#}
-                              <td>
+                              <td id="td1">
+                                  {{ nine.DISCOUNT }}
+                              </td>
+                              <td id="td1">
                                   {{ nine.TOTAL }}
                               </td>
                               </tr>
                         {% endfor %}
+                        <tr>
+                            <td colspan="10" style="text-align: center">
+                                <button type="submit" class="btn btn-primary mr-2" onclick="tableToCSV1()">EXPORT</button>
+                            </td>
 
-
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -284,57 +288,63 @@
                       <br>
                     </p>
                     <div class="table-responsive">
-                      <table class="table table-dark">
+                      <table class="table table-dark" id="table2">
                         <thead>
-                          <tr>
-                            <th> STUD_ID </th>
-                            <th> NAME </th>
-                            <th> MEDIUM </th>
-                              <th> GENDER </th>
-                              <th> DATE OF JOIN </th>
-                              <th> SUBJECT </th>
-                              <th> PHONE NUMBER </th>
-                              <th> PRICE </th>
-{#                              <th> DISCOUNT </th>#}
-                              <th> TOTAL </th>
+                          <tr id="tr2">
+                            <th id="th2"> STUD_ID </th>
+                            <th id="th2"> NAME </th>
+                            <th id="th2"> MEDIUM </th>
+                              <th id="th2"> GENDER </th>
+                              <th id="th2"> DATE OF JOIN </th>
+                              <th id="th2"> SUBJECT </th>
+                              <th id="th2"> PHONE NUMBER </th>
+                              <th id="th2"> PRICE </th>
+                              <th id="th2"> DISCOUNT </th>
+                              <th id="th2"> TOTAL </th>
 
                           </tr>
                         </thead>
                         <tbody>
                           {% for ten in data_ten %}
-                          <tr>
-                            <td>
+                          <tr id="tr2">
+                            <td id="td2">
                                 {{ ten.STUDENT_ID }}
                             </td>
-                            <td>
+                            <td id="td2">
                                 {{ ten.NAME }}
                             </td>
-                            <td>
+                            <td id="td2">
                                 {{ ten.MEDIUM }}
                             </td>
-                            <td>
+                            <td id="td2">
                                 {{ ten.GENDER }}
                             </td>
-                              <td>
+                              <td id="td2">
                                   {{ ten.JOIN_DATE }}
                               </td>
-                            <td>
+                            <td id="td2">
                                 {{ ten.SUBJECT}}
                             </td>
-                            <td>
+                            <td id="td2">
                                 {{ ten.PHONE_NUMBER}}
                             </td>
-                            <td>
+                            <td id="td2">
                                 {{ ten.PRICE }}
                             </td>
-{#                              <td>#}
-{#                                  {{ ten.DISCOUNT }}#}
-{#                              </td>#}
-                              <td>
+                              <td id="td2">
+                                  {{ ten.DISCOUNT }}
+                              </td>
+                              <td id="td2">
                                   {{ ten.TOTAL }}
                               </td>
                               </tr>
                         {% endfor %}
+                        <tr>
+                            <td colspan="10" style="text-align: center">
+                                <button type="submit" class="btn btn-primary mr-2" onclick="tableToCSV2()">EXPORT</button>
+                            </td>
+
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -349,56 +359,62 @@
                       <br>
                     </p>
                     <div class="table-responsive">
-                      <table class="table table-dark">
+                      <table class="table table-dark" id="table3">
                         <thead>
-                          <tr>
-                            <th> STUD_ID </th>
-                            <th> NAME </th>
-                            <th> MEDIUM </th>
-                              <th> GENDER </th>
-                              <th> DATE OF JOIN </th>
-                              <th> SUBJECT </th>
-                              <th> PHONE NUMBER </th>
-                              <th> PRICE </th>
-{#                              <th> DISCOUNT </th>#}
-                              <th> TOTAL </th>
+                          <tr id="tr3">
+                            <th id="th3"> STUD_ID </th>
+                            <th id="th3"> NAME </th>
+                            <th id="th3"> MEDIUM </th>
+                              <th id="th3"> GENDER </th>
+                              <th id="th3"> DATE OF JOIN </th>
+                              <th id="th3"> SUBJECT </th>
+                              <th id="th3"> PHONE NUMBER </th>
+                              <th id="th3"> PRICE </th>
+                              <th id="th3"> DISCOUNT </th>
+                              <th id="th3"> TOTAL </th>
                           </tr>
                         </thead>
                         <tbody>
                           {% for eleven in data_eleven %}
-                          <tr>
-                            <td>
+                          <tr id="tr3">
+                            <td id="td3">
                                 {{ eleven.STUDENT_ID }}
                             </td>
-                            <td>
+                            <td id="td3">
                                 {{ eleven.NAME }}
                             </td>
-                            <td>
+                            <td id="td3">
                                 {{ eleven.MEDIUM }}
                             </td>
-                            <td>
+                            <td id="td3">
                                 {{ eleven.GENDER }}
                             </td>
-                              <td>
+                              <td id="td3">
                                   {{ eleven.JOIN_DATE }}
                               </td>
-                            <td>
+                            <td id="td3">
                                 {{ eleven.SUBJECT}}
                             </td>
-                            <td>
+                            <td id="td3">
                                 {{ eleven.PHONE_NUMBER}}
                             </td>
-                            <td>
+                            <td id="td3">
                                 {{ eleven.PRICE }}
                             </td>
-{#                              <td>#}
-{#                                  {{ eleven.DISCOUNT }}#}
-{#                              </td>#}
-                              <td>
+                              <td id="td3">
+                                  {{ eleven.DISCOUNT }}
+                              </td>
+                              <td id="td3">
                                   {{ eleven.TOTAL }}
                               </td>
                               </tr>
                         {% endfor %}
+                        <tr>
+                            <td colspan="10" style="text-align: center">
+                                <button type="submit" class="btn btn-primary mr-2" onclick="tableToCSV3()">EXPORT</button>
+                            </td>
+
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -412,63 +428,74 @@
                     <h4 class="card-title" style="text-align: center;color: cyan">12TH DETAILS </h4>
                       <br>
                     <div class="table-responsive">
-                      <table class="table table-dark">
+                      <table id="table4" class="table table-dark">
                         <thead>
-                          <tr>
-                            <th> STUD_ID </th>
-                            <th> NAME </th>
-                            <th> MEDIUM </th>
-                              <th> GENDER </th>
-                              <th> DATE OF JOIN </th>
-                              <th> SUBJECT </th>
-                              <th> PHONE NUMBER </th>
-                              <th> PRICE </th>
-{#                              <th> DISCOUNT </th>#}
-                              <th> TOTAL </th>
+                          <tr id="tr4">
+                            <th id="th4"> STUD_ID </th>
+                            <th id="th4"> NAME </th>
+                            <th id="th4"> MEDIUM </th>
+                              <th id="th4"> GENDER </th>
+                              <th id="th4"> DATE OF JOIN </th>
+                              <th id="th4"> SUBJECT </th>
+                              <th id="th4"> PHONE NUMBER </th>
+                              <th id="th4"> PRICE </th>
+                              <th id="th4"> DISCOUNT </th>
+                              <th id="th4"> TOTAL </th>
 
                           </tr>
                         </thead>
                         <tbody>
                           {% for twelve in data_twelve %}
-                          <tr>
-                            <td>
+                          <tr id="tr4">
+                            <td id="td4">
                                 {{ twelve.STUDENT_ID }}
                             </td>
-                            <td>
+                            <td id="td4">
                                 {{ twelve.NAME }}
                             </td>
-                            <td>
+                            <td id="td4">
                                 {{ twelve.MEDIUM }}
                             </td>
-                            <td>
+                            <td id="td4">
                                 {{ twelve.GENDER }}
                             </td>
-                              <td>
+                              <td id="td4">
                                   {{ twelve.JOIN_DATE }}
                               </td>
-                            <td>
+                            <td id="td4">
                                 {{ twelve.SUBJECT}}
                             </td>
-                            <td>
+                            <td id="td4">
                                 {{ twelve.PHONE_NUMBER}}
                             </td>
-                            <td>
+                            <td id="td4">
                                 {{ twelve.PRICE }}
                             </td>
-{#                              <td>#}
-{#                                  {{ twelve.DISCOUNT }}#}
-{#                              </td>#}
-                              <td>
+                              <td id="td4">
+                                  {{ twelve.DISCOUNT }}
+                              </td>
+                              <td id="td4">
                                   {{ twelve.TOTAL }}
                               </td>
                               </tr>
                         {% endfor %}
+                           <tr>
+                            <td colspan="10" style="text-align: center">
+                                <button type="submit" class="btn btn-primary mr-2" onclick="tableToCSV4()">EXPORT</button>
+                            </td>
+
+                          </tr>
                         </tbody>
+
                       </table>
                     </div>
                   </div>
                 </div>
+{#            <div>#}
+{#                <button type="button" class="btn btn-primary btn-lg btn-block" >Print</button>#}
+{#            </div>#}
               </div>
+
 
           <footer class="footer" style="position: fixed; bottom: 0;width: 100%; background-color: black;">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
@@ -521,5 +548,139 @@
     <script src="{% static 'ssets/js/select2.js' %}"></script>
   <script src="{% static 'assets/vendors/select2/select2.min.js' %}"></script>
     <script src="{% static 'assets/vendors/typeahead.js/typeahead.bundle.min.js' %}"></script>
+
+
+    <script>
+            function tableToCSV1() {
+            var csv = [];
+            var rows = document.querySelectorAll("#table1 #tr1");
+            for (var i = 0; i < rows.length; i++) {
+                var row = [], cols = rows[i].querySelectorAll("td, th");
+                for (var j = 0; j < cols.length; j++)
+                    row.push(cols[j].innerText);
+                csv.push(row.join(","));
+            }
+            downloadCSV1(csv.join("\n"));
+        }
+        function tableToCSV2() {
+            var csv = [];
+            var rows = document.querySelectorAll("#table2 #tr2");
+            for (var i = 0; i < rows.length; i++) {
+                var row = [], cols = rows[i].querySelectorAll("td, th");
+                for (var j = 0; j < cols.length; j++)
+                    row.push(cols[j].innerText);
+                csv.push(row.join(","));
+            }
+            downloadCSV2(csv.join("\n"));
+        }
+        function tableToCSV3() {
+            var csv = [];
+            var rows = document.querySelectorAll("#table3 #tr3");
+            for (var i = 0; i < rows.length; i++) {
+                var row = [], cols = rows[i].querySelectorAll("td, th");
+                for (var j = 0; j < cols.length; j++)
+                    row.push(cols[j].innerText);
+                csv.push(row.join(","));
+            }
+            downloadCSV3(csv.join("\n"));
+        }
+        function tableToCSV4() {
+            var csv = [];
+            var rows = document.querySelectorAll("#table4 #tr4");
+            for (var i = 0; i < rows.length; i++) {
+                var row = [], cols = rows[i].querySelectorAll("td, th");
+                for (var j = 0; j < cols.length; j++)
+                    row.push(cols[j].innerText);
+                csv.push(row.join(","));
+            }
+            downloadCSV4(csv.join("\n"));
+        }
+
+        function downloadCSV1(csv_data) {
+            var csv = csv_data;
+            var filename = "IX_DETAILS.csv";
+            var csvFile;
+            var downloadLink;
+            // CSV file
+            csvFile = new Blob([csv], {type: "text/csv"});
+            // Download link
+            downloadLink = document.createElement("a");
+            // File name
+            downloadLink.download = filename;
+            // Create a link to the file
+            downloadLink.href = window.URL.createObjectURL(csvFile);
+            // Hide download link
+            downloadLink.style.display = "none";
+            // Add the link to DOM
+            document.body.appendChild(downloadLink);
+            // Click download link
+            downloadLink.click();
+        }
+        function downloadCSV2(csv_data) {
+            var csv = csv_data;
+            var filename = "X_DETAILS.csv";
+            var csvFile;
+            var downloadLink;
+            // CSV file
+            csvFile = new Blob([csv], {type: "text/csv"});
+            // Download link
+            downloadLink = document.createElement("a");
+            // File name
+            downloadLink.download = filename;
+            // Create a link to the file
+            downloadLink.href = window.URL.createObjectURL(csvFile);
+            // Hide download link
+            downloadLink.style.display = "none";
+            // Add the link to DOM
+            document.body.appendChild(downloadLink);
+            // Click download link
+            downloadLink.click();
+        }
+        function downloadCSV3(csv_data) {
+            var csv = csv_data;
+            var filename = "XI_DETAILS.csv";
+            var csvFile;
+            var downloadLink;
+            // CSV file
+            csvFile = new Blob([csv], {type: "text/csv"});
+            // Download link
+            downloadLink = document.createElement("a");
+            // File name
+            downloadLink.download = filename;
+            // Create a link to the file
+            downloadLink.href = window.URL.createObjectURL(csvFile);
+            // Hide download link
+            downloadLink.style.display = "none";
+            // Add the link to DOM
+            document.body.appendChild(downloadLink);
+            // Click download link
+            downloadLink.click();
+        }
+        function downloadCSV4(csv_data) {
+            var csv = csv_data;
+            var filename = "XII_DETAILS.csv";
+            var csvFile;
+            var downloadLink;
+            // CSV file
+            csvFile = new Blob([csv], {type: "text/csv"});
+            // Download link
+            downloadLink = document.createElement("a");
+            // File name
+            downloadLink.download = filename;
+            // Create a link to the file
+            downloadLink.href = window.URL.createObjectURL(csvFile);
+            // Hide download link
+            downloadLink.style.display = "none";
+            // Add the link to DOM
+            document.body.appendChild(downloadLink);
+            // Click download link
+            downloadLink.click();
+        }
+
+
+    </script>
+
+
+
   </body>
 </html>
