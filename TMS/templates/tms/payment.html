@@ -219,8 +219,9 @@
                           <div class="col-md-6">
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">NAME</label>
-                            <div class="col-sm-9">
-                              <select class="form-control" style="color: white" name="name" id="name_selector" onclick="callid()">
+                            <div class="col-sm-9 " id="display-id">
+
+                              <select class="form-control" style="color: white" name="name" id="name_selector" onchange="callid(9)">
                                   <option selected>SELECT THE CLASS...</option>
                               </select>
                             </div>
@@ -361,6 +362,15 @@
     <div type="text" style="display: none" id="id1">
         {{ id1 }}
     </div>
+    <div type="text" style="display: none" id="id2">
+        {{ id2 }}
+    </div>
+    <div type="text" style="display: none" id="id3">
+        {{ id3 }}
+    </div>
+    <div type="text" style="display: none" id="id4">
+        {{ id4 }}
+    </div>
 
 {#    <div type="text" style="display: none" id="value19">#}
 {#        {{ stud_id1 }}#}
@@ -416,17 +426,38 @@
                 key = "value" + n.toString();
                 value = document.getElementById(key).innerText;
                 value = value.replaceAll(" ", "").slice(3, -3).split("','");
+                res=document.getElementById("display-id");
+                res.innerHTML=`<select class="form-control" style="color: white" name="name" id="name_selector" onchange="callid(`+n+`)">
+                                  <option selected>SELECT THE CLASS...</option>
+                              </select>`
 
                 console.log(value);
                 result = document.getElementById("name_selector");
                 result.innerHTML = "<option selected>SELECT...</option>";
                 for (i = 0; i < value.length; i++) {
-                    result.innerHTML += ` <option onclick="callid(`+i+`)">` + value[i] + `</option> `;
+                    result.innerHTML += ` <option id="`+i+`">` + value[i] + `</option> `;
                 }
         }
         function callid(n){
-
+            let res_value = document.getElementById("name_selector").value;
             console.log(n);
+            let ides=document.getElementById("id"+(n-8).toString()).innerText;
+            ides = ides.replaceAll(" ", "").slice(3, -3).split("','");
+            console.log(ides)
+
+            let key = "value" + n.toString();
+            let value = document.getElementById(key).innerText;
+            value = value.replaceAll(" ", "").slice(3, -3).split("','");
+            let k=value.indexOf(res_value);
+            document.getElementById("stud_id").value=ides[k];
+
+
+
+
+
+
+
+
         }
         {#function callid(n){#}
         {#    console.log(n);#}
