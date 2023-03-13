@@ -124,6 +124,14 @@
             </a>
           </li>
             <li class="nav-item menu-items">
+            <a class="nav-link" href="{% url 'attendanceReport' %}">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">REPORT</span>
+            </a>
+          </li>
+            <li class="nav-item menu-items">
             <a class="nav-link" href="{% url 'payment' %}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
@@ -230,7 +238,11 @@
                         </thead>
                         <tbody>
                         <form method="post" action="{% url 'attendance' '9' %}">
+
                         {% csrf_token %}
+                        <div style="display: flex;justify-content: space-around;">
+                        <input type="date" name="date" style="background-color: transparent;color: cyan;border: 2px solid cyan;margin-left: 77%;">
+                        </div>
                         {% for nine in data_nine %}
                           <tr>
                             <td>
@@ -319,6 +331,9 @@
                         <tbody>
                         <form method="post" action="{% url 'attendance' '10' %}">
                         {% csrf_token %}
+                        <div style="display: flex;justify-content: space-around;">
+                        <input type="date" name="date" style="background-color: transparent;color: cyan;border: 2px solid cyan;margin-left: 77%;">
+                        </div>
                         {% for ten in data_ten %}
                           <tr>
                             <td>
@@ -402,6 +417,9 @@
                         <tbody>
                         <form method="post" action="{% url 'attendance' '11' %}">
                         {% csrf_token %}
+                        <div style="display: flex;justify-content: space-around;">
+                        <input type="date" name="date" style="background-color: transparent;color: cyan;border: 2px solid cyan;margin-left: 77%;">
+                        </div>
                         {% for eleven in data_eleven %}
                           <tr>
                             <td>
@@ -486,6 +504,9 @@
                         <tbody>
                         <form method="post" action="{% url 'attendance' '12' %}">
                         {% csrf_token %}
+                        <div style="display: flex;justify-content: space-around;">
+                        <input type="date" name="date" style="background-color: transparent;color: cyan;border: 2px solid cyan;margin-left: 77%;">
+                        </div>
                         {% for twelve in data_twelve %}
                           <tr>
                             <td>

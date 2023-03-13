@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import NinthClass, TenthClass, EleventhClass, TwelvethClass , IXPayment, XPayment, XIPayment, XIIPayment
+from . models import NinthClass, TenthClass, EleventhClass, TwelvethClass , IXPayment, XPayment, XIPayment, XIIPayment, IXAttendance, XAttendance, XIAttendance, XIIAttendance
 
 # Register your models here.
 
@@ -11,4 +11,8 @@ admin.site.register(IXPayment)
 admin.site.register(XPayment)
 admin.site.register(XIPayment)
 admin.site.register(XIIPayment)
+admin.site.register(IXAttendance)
+admin.site.register(XAttendance)
+admin.site.register(XIAttendance)
+admin.site.register(XIIAttendance)
 

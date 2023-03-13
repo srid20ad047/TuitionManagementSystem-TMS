@@ -23,8 +23,12 @@
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}" >
+
+      <link rel="stylesheet" href="{% static 'assets/vendors/select2/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css' %}">
   </head>
   <body>
+
     <div class="container-scroller">
       <!-- partial:partials/_sidebar.html -->
 
@@ -94,8 +98,7 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-
-          <li class="nav-item menu-items">
+            <li class="nav-item menu-items">
             <a class="nav-link" href="{% url 'register' %}">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
@@ -112,7 +115,6 @@
               <span class="menu-title">DISPLAY</span>
             </a>
           </li>
-
             <li class="nav-item menu-items">
             <a class="nav-link" href="{% url 'attendance' %}">
               <span class="menu-icon">
@@ -145,12 +147,13 @@
               <span class="menu-title">ADMIN PAGE</span>
             </a>
           </li>
-
         </ul>
       </nav>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_navbar.html -->
+
+          <!-- NAV BAR START -->
+
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
             <a class="navbar-brand brand-logo-mini" href="{% url 'index' %}"><img src="{% static 'assets/images/logo-mini.svg' %}" alt="logo" /></a>
@@ -168,7 +171,7 @@
             </ul>
             <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown d-none d-lg-block">
-                <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"  href="{% url 'register' %}">+ Add New Student</a>
+                <a class="nav-link btn btn-success create-new-button" href="{% url 'register' %}">+ Add New Student</a>
               </li>
 
               <li class="nav-item dropdown">
@@ -182,6 +185,7 @@
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                   <h6 class="p-3 mb-0">PROFILE</h6>
                   <div class="dropdown-divider"></div>
+
 
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item" href="{% url 'logoutUser' %}">
@@ -201,210 +205,290 @@
               <span class="mdi mdi-format-line-spacing"></span>
             </button>
           </div>
-
-
-
         </nav>
-        <!-- partial -->
+
+          <!-- NAVBAR END -->
+
+
+          <!-- MAIN CONTENT -->
+
         <div class="main-panel">
-          <div class="content-wrapper">
+
+        <div class="col-12 grid-margin">
 
 
-              <div class="row">
-                  <div class="col-lg-6 grid-margin stretch-card">
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">BAR CHART</h4>
-                    <canvas id="barChart" style="height:230px"></canvas>
-                  </div>
-                </div>
-              </div>
-                  <div class="col-lg-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">PIE CHART</h4>
-                    <canvas id="pieChart" style="height:250px"></canvas>
-                  </div>
-                </div>
-              </div>
-              </div>
+                    <h4 class="card-title" style="text-align: center;color: cyan"> 9TH DETAILS </h4>
+                      <br>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-dark" id="table1">
+                        <thead>
+                          <tr id="tr1">
+                              {% for i in data_nine %}
+                            <th>
+                                {{ i.DATE }}
+                            </th>
 
+                              {% endfor %}
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in data_nine %}
+                          <tr id="tr1">
+                            <td id="td1">
+                                {{ nine.STUD_ID }}
+                            </td>
+                              </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="10" style="text-align: center">
+                                <button type="submit" class="btn btn-primary mr-2" onclick="tableToCSV1()">EXPORT</button>
+                            </td>
 
-            <div class="row">
-              <div class="col-md-6 col-xl-4 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="d-flex flex-row justify-content-between">
-                      <h4 class="card-title">Messages</h4>
-                      <p class="text-muted mb-1 small">View all</p>
-                    </div>
-                    <div class="preview-list">
-                      <div class="preview-item border-bottom">
-                        <div class="preview-thumbnail">
-                          <img src="{% static 'assets/images/faces/face6.jpg' %}" alt="image" class="rounded-circle" />
-                        </div>
-                        <div class="preview-item-content d-flex flex-grow">
-                          <div class="flex-grow">
-                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                              <h6 class="preview-subject">Leonard</h6>
-                              <p class="text-muted text-small">5 minutes ago</p>
-                            </div>
-                            <p class="text-muted">Well, it seems to be working now.</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="preview-item border-bottom">
-                        <div class="preview-thumbnail">
-                          <img src="{% static 'assets/images/faces/face8.jpg' %}" alt="image" class="rounded-circle" />
-                        </div>
-                        <div class="preview-item-content d-flex flex-grow">
-                          <div class="flex-grow">
-                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                              <h6 class="preview-subject">Luella Mills</h6>
-                              <p class="text-muted text-small">10 Minutes Ago</p>
-                            </div>
-                            <p class="text-muted">Well, it seems to be working now.</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="preview-item border-bottom">
-                        <div class="preview-thumbnail">
-                          <img src="{% static 'assets/images/faces/face9.jpg' %}" alt="image" class="rounded-circle" />
-                        </div>
-                        <div class="preview-item-content d-flex flex-grow">
-                          <div class="flex-grow">
-                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                              <h6 class="preview-subject">Ethel Kelly</h6>
-                              <p class="text-muted text-small">2 Hours Ago</p>
-                            </div>
-                            <p class="text-muted">Please review the tickets</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="preview-item border-bottom">
-                        <div class="preview-thumbnail">
-                          <img src="{% static 'assets/images/faces/face11.jp' %}" alt="image" class="rounded-circle" />
-                        </div>
-                        <div class="preview-item-content d-flex flex-grow">
-                          <div class="flex-grow">
-                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                              <h6 class="preview-subject">Herman May</h6>
-                              <p class="text-muted text-small">4 Hours Ago</p>
-                            </div>
-                            <p class="text-muted">Thanks a lot. It was easy to fix it .</p>
-                          </div>
-                        </div>
-                      </div>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 col-xl-4 grid-margin stretch-card">
+
+
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Portfolio Slide</h4>
-                    <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
-                      <div class="item">
-                        <img src="{% static 'assets/images/dashboard/Rectangle.jpg' %}" alt="">
-                      </div>
-                      <div class="item">
-                        <img src="{% static 'assets/images/dashboard/Img_5.jpg' %}" alt="">
-                      </div>
-                      <div class="item">
-                        <img src="{% static 'assets/images/dashboard/img_6.jpg' %}" alt="">
-                      </div>
-                    </div>
-                    <div class="d-flex py-4">
-                      <div class="preview-list w-100">
-                        <div class="preview-item p-0">
-                          <div class="preview-thumbnail">
-                            <img src="{% static 'assets/images/faces/face12.jpg' %}" class="rounded-circle" alt="">
-                          </div>
-                          <div class="preview-item-content d-flex flex-grow">
-                            <div class="flex-grow">
-                              <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                <h6 class="preview-subject">CeeCee Bass</h6>
-                                <p class="text-muted text-small">4 Hours Ago</p>
-                              </div>
-                              <p class="text-muted">Well, it seems to be working now.</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="text-muted">Well, it seems to be working now. </p>
-                    <div class="progress progress-md portfolio-progress">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <h4 class="card-title" style="text-align: center;color: cyan"> 10TH DETAILS </h4>
+                      <br>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-dark" id="table2">
+                        <thead>
+                          <tr id="tr2">
+                            <th id="th2"> STUD_ID </th>
+                            <th id="th2"> NAME </th>
+                            <th id="th2"> MEDIUM </th>
+                              <th id="th2"> GENDER </th>
+                              <th id="th2"> DATE OF JOIN </th>
+                              <th id="th2"> SUBJECT </th>
+                              <th id="th2"> PHONE NUMBER </th>
+                              <th id="th2"> PRICE </th>
+                              <th id="th2"> DISCOUNT </th>
+                              <th id="th2"> TOTAL </th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for ten in data_ten %}
+                          <tr id="tr2">
+                            <td id="td2">
+                                {{ ten.STUDENT_ID }}
+                            </td>
+                            <td id="td2">
+                                {{ ten.NAME }}
+                            </td>
+                            <td id="td2">
+                                {{ ten.MEDIUM }}
+                            </td>
+                            <td id="td2">
+                                {{ ten.GENDER }}
+                            </td>
+                              <td id="td2">
+                                  {{ ten.JOIN_DATE }}
+                              </td>
+                            <td id="td2">
+                                {{ ten.SUBJECT}}
+                            </td>
+                            <td id="td2">
+                                {{ ten.PHONE_NUMBER}}
+                            </td>
+                            <td id="td2">
+                                {{ ten.PRICE }}
+                            </td>
+                              <td id="td2">
+                                  {{ ten.DISCOUNT }}
+                              </td>
+                              <td id="td2">
+                                  {{ ten.TOTAL }}
+                              </td>
+                              </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="10" style="text-align: center">
+                                <button type="submit" class="btn btn-primary mr-2" onclick="tableToCSV2()">EXPORT</button>
+                            </td>
+
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-12 col-xl-4 grid-margin stretch-card">
+
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">To do list</h4>
-                    <div class="add-items d-flex">
-                      <input type="text" class="form-control todo-list-input" placeholder="enter task..">
-                      <button class="add btn btn-primary todo-list-add-btn">Add</button>
-                    </div>
-                    <div class="list-wrapper">
-                      <ul class="d-flex flex-column-reverse text-white todo-list todo-list-custom">
-                        <li>
-                          <div class="form-check form-check-primary">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Create invoice </label>
-                          </div>
-                          <i class="remove mdi mdi-close-box"></i>
-                        </li>
-                        <li>
-                          <div class="form-check form-check-primary">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Meeting with Alita </label>
-                          </div>
-                          <i class="remove mdi mdi-close-box"></i>
-                        </li>
-                        <li class="completed">
-                          <div class="form-check form-check-primary">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox" checked> Prepare for presentation </label>
-                          </div>
-                          <i class="remove mdi mdi-close-box"></i>
-                        </li>
-                        <li>
-                          <div class="form-check form-check-primary">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Plan weekend outing </label>
-                          </div>
-                          <i class="remove mdi mdi-close-box"></i>
-                        </li>
-                        <li>
-                          <div class="form-check form-check-primary">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Pick up kids from school </label>
-                          </div>
-                          <i class="remove mdi mdi-close-box"></i>
-                        </li>
-                      </ul>
+                    <h4 class="card-title" style="text-align: center;color: cyan"> 11TH DETAILS </h4>
+                      <br>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-dark" id="table3">
+                        <thead>
+                          <tr id="tr3">
+                            <th id="th3"> STUD_ID </th>
+                            <th id="th3"> NAME </th>
+                            <th id="th3"> MEDIUM </th>
+                              <th id="th3"> GENDER </th>
+                              <th id="th3"> DATE OF JOIN </th>
+                              <th id="th3"> SUBJECT </th>
+                              <th id="th3"> PHONE NUMBER </th>
+                              <th id="th3"> PRICE </th>
+                              <th id="th3"> DISCOUNT </th>
+                              <th id="th3"> TOTAL </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for eleven in data_eleven %}
+                          <tr id="tr3">
+                            <td id="td3">
+                                {{ eleven.STUDENT_ID }}
+                            </td>
+                            <td id="td3">
+                                {{ eleven.NAME }}
+                            </td>
+                            <td id="td3">
+                                {{ eleven.MEDIUM }}
+                            </td>
+                            <td id="td3">
+                                {{ eleven.GENDER }}
+                            </td>
+                              <td id="td3">
+                                  {{ eleven.JOIN_DATE }}
+                              </td>
+                            <td id="td3">
+                                {{ eleven.SUBJECT}}
+                            </td>
+                            <td id="td3">
+                                {{ eleven.PHONE_NUMBER}}
+                            </td>
+                            <td id="td3">
+                                {{ eleven.PRICE }}
+                            </td>
+                              <td id="td3">
+                                  {{ eleven.DISCOUNT }}
+                              </td>
+                              <td id="td3">
+                                  {{ eleven.TOTAL }}
+                              </td>
+                              </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="10" style="text-align: center">
+                                <button type="submit" class="btn btn-primary mr-2" onclick="tableToCSV3()">EXPORT</button>
+                            </td>
+
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title" style="text-align: center;color: cyan">12TH DETAILS </h4>
+                      <br>
+                    <div class="table-responsive">
+                      <table id="table4" class="table table-dark">
+                        <thead>
+                          <tr id="tr4">
+                            <th id="th4"> STUD_ID </th>
+                            <th id="th4"> NAME </th>
+                            <th id="th4"> MEDIUM </th>
+                              <th id="th4"> GENDER </th>
+                              <th id="th4"> DATE OF JOIN </th>
+                              <th id="th4"> SUBJECT </th>
+                              <th id="th4"> PHONE NUMBER </th>
+                              <th id="th4"> PRICE </th>
+                              <th id="th4"> DISCOUNT </th>
+                              <th id="th4"> TOTAL </th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for twelve in data_twelve %}
+                          <tr id="tr4">
+                            <td id="td4">
+                                {{ twelve.STUDENT_ID }}
+                            </td>
+                            <td id="td4">
+                                {{ twelve.NAME }}
+                            </td>
+                            <td id="td4">
+                                {{ twelve.MEDIUM }}
+                            </td>
+                            <td id="td4">
+                                {{ twelve.GENDER }}
+                            </td>
+                              <td id="td4">
+                                  {{ twelve.JOIN_DATE }}
+                              </td>
+                            <td id="td4">
+                                {{ twelve.SUBJECT}}
+                            </td>
+                            <td id="td4">
+                                {{ twelve.PHONE_NUMBER}}
+                            </td>
+                            <td id="td4">
+                                {{ twelve.PRICE }}
+                            </td>
+                              <td id="td4">
+                                  {{ twelve.DISCOUNT }}
+                              </td>
+                              <td id="td4">
+                                  {{ twelve.TOTAL }}
+                              </td>
+                              </tr>
+                        {% endfor %}
+                           <tr>
+                            <td colspan="10" style="text-align: center">
+                                <button type="submit" class="btn btn-primary mr-2" onclick="tableToCSV4()">EXPORT</button>
+                            </td>
+
+                          </tr>
+                        </tbody>
+
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
 
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
+          <footer class="footer" style="position: fixed; bottom: 0;width: 100%; background-color: black;">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2023 Masthan</span>
             </div>
           </footer>
-{#          <!-- partial -->#}
+
         </div>
-        <!-- main-panel ends -->
+
+
+         <!-- MANI CONTENT END -->
+
       </div>
-      <!-- page-body-wrapper ends -->
+
     </div>
+
+
+
+
+
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="{% static 'assets/vendors/js/vendor.bundle.base.js' %}"></script>
@@ -429,5 +513,13 @@
     <!-- Custom js for chart page -->
     <script src="{% static 'assets/js/chart.js' %}"></script>
     <!-- End custom js for chart page -->
+
+    <script src="{% static 'assets/js/file-upload.js' %}"></script>
+    <script src="{% static 'assets/js/typeahead.js' %}"></script>
+    <script src="{% static 'ssets/js/select2.js' %}"></script>
+  <script src="{% static 'assets/vendors/select2/select2.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/typeahead.js/typeahead.bundle.min.js' %}"></script>
+
+
   </body>
 </html>

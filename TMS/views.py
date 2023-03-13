@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .models import NinthClass, TenthClass, EleventhClass, TwelvethClass, IXPayment, XPayment, XIPayment, XIIPayment
+from .models import NinthClass, TenthClass, EleventhClass, TwelvethClass, IXPayment, XPayment, XIPayment, XIIPayment , IXAttendance, XAttendance, XIAttendance, XIIAttendance
 from datetime import datetime
 
 
@@ -35,6 +35,40 @@ def logoutUser(request):
 
 def attendance_call(request, title):
     print(title)
+
+    if title == "9":
+        li = []
+        details = NinthClass.objects.all()
+        date = request.POST.get('date')
+        for i in details:
+            value = request.POST.get(i.STUDENT_ID)
+            IXattendance = IXAttendance(STUD_ID=i.STUDENT_ID, NAME=i.NAME, DATE=date, ATTENDANCE=value)
+            IXattendance.save()
+    elif title == "10":
+        li = []
+        details = TenthClass.objects.all()
+        date = request.POST.get('date')
+        for i in details:
+            value = request.POST.get(i.STUDENT_ID)
+            Xattendance = XAttendance(STUD_ID=i.STUDENT_ID, NAME=i.NAME, DATE=date, ATTENDANCE=value)
+            Xattendance.save()
+    elif title == "11":
+        li = []
+        details = EleventhClass.objects.all()
+        date = request.POST.get('date')
+        for i in details:
+            value = request.POST.get(i.STUDENT_ID)
+            XIattendance = XIAttendance(STUD_ID=i.STUDENT_ID, NAME=i.NAME, DATE=date, ATTENDANCE=value)
+            XIattendance.save()
+    elif title == "12":
+        li = []
+        details = TwelvethClass.objects.all()
+        date = request.POST.get('date')
+        for i in details:
+            value = request.POST.get(i.STUDENT_ID)
+            XIIattendance = XIIAttendance(STUD_ID=i.STUDENT_ID, NAME=i.NAME, DATE=date, ATTENDANCE=value)
+            XIIattendance.save()
+    return redirect('attendance')
 
 
 def payment(request):
@@ -294,3 +328,6 @@ def attendance(request):
     return render(request, 'tms/attendance.html',
                   {'data_nine': NinthClass.objects.all(), 'data_ten': TenthClass.objects.all(),
                    'data_eleven': EleventhClass.objects.all(), 'data_twelve': TwelvethClass.objects.all()})
+
+def attendanceReport(request):
+    return render(request, 'tms/attendance_display.html')

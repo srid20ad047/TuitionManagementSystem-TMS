@@ -13,4 +13,5 @@ urlpatterns = [
     path('attendance', views.attendance, name='attendance'),
     path('attendance/<slug:title>',views.attendance_call, name='attendance'),
     path('payment', views.payment, name='payment'),
+    path('attendanceReport', views.attendanceReport, name='attendanceReport'),
 ]
