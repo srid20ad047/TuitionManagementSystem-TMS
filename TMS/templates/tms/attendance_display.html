@@ -226,29 +226,25 @@
                     <div class="table-responsive">
                       <table class="table table-dark" id="table1">
                         <thead>
-                          <tr id="tr1">
                           <input type="month" id="month" name="month" value="2023-01" min="2022-01" max="2023-12" >
-                          <th>
-                              NAME
-                          </th>
-                              {% for data in nine_date %}
-                            <th>
-                                {{ data }}
-                            </th>
-
-                              {% endfor %}
+                          <tr id="tr1" class="row-cols-5">
+{#                              {% for data in nine_details %}#}
+{#                            <th>#}
+{#                                {{ data }}#}
+{#                            </th>#}
+{##}
+{#                              {% endfor %}#}
                           </tr>
                         </thead>
                         <tbody>
-                        {% for data in nine %}
                           <tr id="tr1">
 
-                          <td>
-                                {{ data.NAME }}
-                          </td>
-                            <td>
-                                    {{ data.STATUS }}
-                              </tr>
+                           {% for key , value  in nine_details.items %}
+                            <td> {{ key }}</td>
+                          {% for i in value %}
+                                <td> {{ i }}</td>
+
+                              {% endfor %}</tr>
                         {% endfor %}
                         <tr>
                             <td colspan="10" style="text-align: center">

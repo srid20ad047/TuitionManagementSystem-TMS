@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import NinthClass, TenthClass, EleventhClass, TwelvethClass, IXPayment, XPayment, XIPayment, XIIPayment , NinthAttendance , TenthAttendance , EleventhAttendance , TwelvethAttendance
 from datetime import datetime
-
+from collections import defaultdict
 
 # Create your views here.
 
@@ -336,4 +336,25 @@ def attendance(request):
                    'data_eleven': EleventhClass.objects.all(), 'data_twelve': TwelvethClass.objects.all()})
 
 def attendanceReport(request):
-    return render(request, 'tms/attendance_display.html',{'nine': NinthAttendance.objects.all(), 'ten': TenthAttendance.objects.all(),'eleven': EleventhAttendance.objects.all(), 'twelve': TwelvethAttendance.objects.all()})
+    nine_details = defaultdict(list)
+    for i in NinthClass.objects.all():
+        nine_details["Name"].append(i.NAME)
+    for i in NinthAttendance.objects.all():
+        nine_details[i.DATE].append(i.STATUS)
+    ten_details = defaultdict(list)
+    for i in TenthClass.objects.all():
+        ten_details["Name"].append(i.NAME)
+    for i in TenthAttendance.objects.all():
+        ten_details[i.DATE].append(i.STATUS)
+    eleven_details = defaultdict(list)
+    for i in EleventhClass.objects.all():
+        eleven_details["Name"].append(i.NAME)
+    for i in EleventhAttendance.objects.all():
+        eleven_details[i.DATE].append(i.STATUS)
+    twelve_details = defaultdict(list)
+    for i in TwelvethClass.objects.all():
+        twelve_details["Name"].append(i.NAME)
+    for i in TwelvethAttendance.objects.all():
+        twelve_details[i.DATE].append(i.STATUS)
+    print(nine_details)
+    return render(request, 'tms/attendance_display.html',{'nine_details' : dict(nine_details),'ten_details' : dict(ten_details),'eleven_details' : dict(eleven_details),'twelve_details' : dict(twelve_details)})
