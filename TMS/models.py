@@ -108,38 +108,34 @@ class XIIPayment(models.Model):
     def __str__(self):
         return self.NAME
 
-class IXAttendance(models.Model):
-    STUD_ID = models.CharField(max_length=100)
+class NinthAttendance(models.Model):
     NAME = models.CharField(max_length=100)
-    DATE = models.DateField(max_length=100)
-    ATTENDANCE = models.CharField(max_length=100)
-
+    STUDENT_ID = models.CharField(max_length=100)
+    DATE = models.CharField(max_length=100)
+    STATUS = models.CharField(max_length=100)
     def __str__(self):
         return self.NAME
 
-class XAttendance(models.Model):
-    STUD_ID = models.CharField(max_length=100)
+class TenthAttendance(models.Model):
     NAME = models.CharField(max_length=100)
-    DATE = models.DateField(max_length=100)
-    ATTENDANCE = models.CharField(max_length=100)
-
+    STUDENT_ID = models.CharField(max_length=100)
+    DATE = models.CharField(max_length=100)
+    STATUS = models.CharField(max_length=100)
     def __str__(self):
         return self.NAME
 
-class XIAttendance(models.Model):
-    STUD_ID = models.CharField(max_length=100)
+class EleventhAttendance(models.Model):
     NAME = models.CharField(max_length=100)
-    DATE = models.DateField(max_length=100)
-    ATTENDANCE = models.CharField(max_length=100)
-
+    STUDENT_ID = models.CharField(max_length=100)
+    DATE = models.CharField(max_length=100)
+    STATUS = models.CharField(max_length=100)
     def __str__(self):
         return self.NAME
 
-class XIIAttendance(models.Model):
-    STUD_ID = models.CharField(max_length=100)
+class TwelvethAttendance(models.Model):
     NAME = models.CharField(max_length=100)
-    DATE = models.DateField(max_length=100)
-    ATTENDANCE = models.CharField(max_length=100)
-
+    STUDENT_ID = models.CharField(max_length=100)
+    DATE = models.CharField(max_length=100)
+    STATUS = models.CharField(max_length=100)
     def __str__(self):
         return self.NAME

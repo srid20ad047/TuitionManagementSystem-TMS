@@ -380,6 +380,20 @@
         {{ id4 }}
     </div>
 
+
+<div type="text" style="display: none" id="amount1">
+        {{ amount1 }}
+    </div >
+    <div type="text" style="display: none" id="amount2">
+        {{ amount2 }}
+    </div>
+    <div type="text" style="display: none" id="amount3">
+        {{ amount3 }}
+    </div>
+    <div type="text" style="display: none" id="amount4">
+        {{ amount4 }}
+    </div>
+
 {#    <div type="text" style="display: none" id="value19">#}
 {#        {{ stud_id1 }}#}
 {#    </div>#}
@@ -461,7 +475,19 @@
 
 
 
+            let res_value1 = document.getElementById("name_selector").value;
+            let ides1=document.getElementById("amount"+(n-8).toString()).innerText;
+            ides1 = ides1.replaceAll(" ", "").slice(3, -3).split("','");
+            console.log(ides1)
 
+            let key1 = "amount" + n.toString();
+            let value1 = document.getElementById(key1).innerText;
+            {#console.log(value1)#}
+            value1 = value1.replaceAll(" ", "").slice(3, -3).split("','");
+
+            console.log(value1)
+            let k1=value1.indexOf(res_value1);
+            document.getElementById("amount").value=ides1[k1];
 
 
 

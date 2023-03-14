@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .models import NinthClass, TenthClass, EleventhClass, TwelvethClass, IXPayment, XPayment, XIPayment, XIIPayment , IXAttendance, XAttendance, XIAttendance, XIIAttendance
+from .models import NinthClass, TenthClass, EleventhClass, TwelvethClass, IXPayment, XPayment, XIPayment, XIIPayment , NinthAttendance , TenthAttendance , EleventhAttendance , TwelvethAttendance
 from datetime import datetime
 
 
@@ -42,7 +42,7 @@ def attendance_call(request, title):
         date = request.POST.get('date')
         for i in details:
             value = request.POST.get(i.STUDENT_ID)
-            IXattendance = IXAttendance(STUD_ID=i.STUDENT_ID, NAME=i.NAME, DATE=date, ATTENDANCE=value)
+            IXattendance = NinthAttendance(STUDENT_ID=i.STUDENT_ID, NAME=i.NAME, DATE=date, STATUS=value)
             IXattendance.save()
     elif title == "10":
         li = []
@@ -50,7 +50,7 @@ def attendance_call(request, title):
         date = request.POST.get('date')
         for i in details:
             value = request.POST.get(i.STUDENT_ID)
-            Xattendance = XAttendance(STUD_ID=i.STUDENT_ID, NAME=i.NAME, DATE=date, ATTENDANCE=value)
+            Xattendance = TenthAttendance(STUDENT_ID=i.STUDENT_ID, NAME=i.NAME, DATE=date, STATUS=value)
             Xattendance.save()
     elif title == "11":
         li = []
@@ -58,7 +58,7 @@ def attendance_call(request, title):
         date = request.POST.get('date')
         for i in details:
             value = request.POST.get(i.STUDENT_ID)
-            XIattendance = XIAttendance(STUD_ID=i.STUDENT_ID, NAME=i.NAME, DATE=date, ATTENDANCE=value)
+            XIattendance = EleventhAttendance(STUDENT_ID=i.STUDENT_ID, NAME=i.NAME, DATE=date, STATUS=value)
             XIattendance.save()
     elif title == "12":
         li = []
@@ -66,7 +66,7 @@ def attendance_call(request, title):
         date = request.POST.get('date')
         for i in details:
             value = request.POST.get(i.STUDENT_ID)
-            XIIattendance = XIIAttendance(STUD_ID=i.STUDENT_ID, NAME=i.NAME, DATE=date, ATTENDANCE=value)
+            XIIattendance = TwelvethAttendance(STUDENT_ID=i.STUDENT_ID, NAME=i.NAME, DATE=date, STATUS=value)
             XIIattendance.save()
     return redirect('attendance')
 
@@ -162,27 +162,33 @@ def payment(request):
 
     data = TenthClass.objects.all()
     val2 = []
+    id2 = []
     for i in data:
+        id2.append(i.STUDENT_ID)
         val2.append(i.NAME)
     print(val2)
 
 
     data = EleventhClass.objects.all()
     val3 = []
+    id3 = []
     for i in data:
+        id3.append(i.STUDENT_ID)
         val3.append(i.NAME)
     print(val3)
 
 
     data = TwelvethClass.objects.all()
     val4 = []
+    id4 = []
     for i in data:
+        id4.append(i.STUDENT_ID)
         val4.append(i.NAME)
     print(val4)
 
 
 
-    return render(request, 'tms/payment.html',{'data': data, 'val1': val1, 'val2': val2, 'val3': val3, 'val4': val4,'id1': id1})
+    return render(request, 'tms/payment.html',{'data': data, 'val1': val1, 'val2': val2, 'val3': val3, 'val4': val4,'id1': id1, 'id2': id2, 'id3': id3, 'id4': id4})
 
 
 def register(request):
@@ -330,4 +336,4 @@ def attendance(request):
                    'data_eleven': EleventhClass.objects.all(), 'data_twelve': TwelvethClass.objects.all()})
 
 def attendanceReport(request):
-    return render(request, 'tms/attendance_display.html')
+    return render(request, 'tms/attendance_display.html',{'nine': NinthAttendance.objects.all(), 'ten': TenthAttendance.objects.all(),'eleven': EleventhAttendance.objects.all(), 'twelve': TwelvethAttendance.objects.all()})

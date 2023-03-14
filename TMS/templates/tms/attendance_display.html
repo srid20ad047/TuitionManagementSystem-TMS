@@ -227,20 +227,25 @@
                       <table class="table table-dark" id="table1">
                         <thead>
                           <tr id="tr1">
-                              {% for i in data_nine %}
+                              {% for data in nine %}
                             <th>
-                                {{ i.DATE }}
+                                {{ data.DATE }}
                             </th>
 
                               {% endfor %}
                           </tr>
                         </thead>
                         <tbody>
-                        {% for i in data_nine %}
+                        {% for data in nine %}
                           <tr id="tr1">
                             <td id="td1">
-                                {{ nine.STUD_ID }}
+                                {{ data.STUDENT_ID }}
                             </td>
+                          <td>
+                                {{ data.NAME }}
+                          </td>
+                            <td>
+                                    {{ data.STATUS }}
                               </tr>
                         {% endfor %}
                         <tr>
@@ -267,54 +272,54 @@
                       <table class="table table-dark" id="table2">
                         <thead>
                           <tr id="tr2">
-                            <th id="th2"> STUD_ID </th>
-                            <th id="th2"> NAME </th>
-                            <th id="th2"> MEDIUM </th>
-                              <th id="th2"> GENDER </th>
-                              <th id="th2"> DATE OF JOIN </th>
-                              <th id="th2"> SUBJECT </th>
-                              <th id="th2"> PHONE NUMBER </th>
-                              <th id="th2"> PRICE </th>
-                              <th id="th2"> DISCOUNT </th>
-                              <th id="th2"> TOTAL </th>
+{#                            <th id="th2"> STUD_ID </th>#}
+{#                            <th id="th2"> NAME </th>#}
+{#                            <th id="th2"> MEDIUM </th>#}
+{#                              <th id="th2"> GENDER </th>#}
+{#                              <th id="th2"> DATE OF JOIN </th>#}
+{#                              <th id="th2"> SUBJECT </th>#}
+{#                              <th id="th2"> PHONE NUMBER </th>#}
+{#                              <th id="th2"> PRICE </th>#}
+{#                              <th id="th2"> DISCOUNT </th>#}
+{#                              <th id="th2"> TOTAL </th>#}
 
                           </tr>
                         </thead>
                         <tbody>
-                          {% for ten in data_ten %}
-                          <tr id="tr2">
-                            <td id="td2">
-                                {{ ten.STUDENT_ID }}
-                            </td>
-                            <td id="td2">
-                                {{ ten.NAME }}
-                            </td>
-                            <td id="td2">
-                                {{ ten.MEDIUM }}
-                            </td>
-                            <td id="td2">
-                                {{ ten.GENDER }}
-                            </td>
-                              <td id="td2">
-                                  {{ ten.JOIN_DATE }}
-                              </td>
-                            <td id="td2">
-                                {{ ten.SUBJECT}}
-                            </td>
-                            <td id="td2">
-                                {{ ten.PHONE_NUMBER}}
-                            </td>
-                            <td id="td2">
-                                {{ ten.PRICE }}
-                            </td>
-                              <td id="td2">
-                                  {{ ten.DISCOUNT }}
-                              </td>
-                              <td id="td2">
-                                  {{ ten.TOTAL }}
-                              </td>
-                              </tr>
-                        {% endfor %}
+{#                          {% for ten in data_ten %}#}
+{#                          <tr id="tr2">#}
+{#                            <td id="td2">#}
+{#                                {{ ten.STUDENT_ID }}#}
+{#                            </td>#}
+{#                            <td id="td2">#}
+{#                                {{ ten.NAME }}#}
+{#                            </td>#}
+{#                            <td id="td2">#}
+{#                                {{ ten.MEDIUM }}#}
+{#                            </td>#}
+{#                            <td id="td2">#}
+{#                                {{ ten.GENDER }}#}
+{#                            </td>#}
+{#                              <td id="td2">#}
+{#                                  {{ ten.JOIN_DATE }}#}
+{#                              </td>#}
+{#                            <td id="td2">#}
+{#                                {{ ten.SUBJECT}}#}
+{#                            </td>#}
+{#                            <td id="td2">#}
+{#                                {{ ten.PHONE_NUMBER}}#}
+{#                            </td>#}
+{#                            <td id="td2">#}
+{#                                {{ ten.PRICE }}#}
+{#                            </td>#}
+{#                              <td id="td2">#}
+{#                                  {{ ten.DISCOUNT }}#}
+{#                              </td>#}
+{#                              <td id="td2">#}
+{#                                  {{ ten.TOTAL }}#}
+{#                              </td>#}
+{#                              </tr>#}
+{#                        {% endfor %}#}
                         <tr>
                             <td colspan="10" style="text-align: center">
                                 <button type="submit" class="btn btn-primary mr-2" onclick="tableToCSV2()">EXPORT</button>
@@ -338,53 +343,53 @@
                       <table class="table table-dark" id="table3">
                         <thead>
                           <tr id="tr3">
-                            <th id="th3"> STUD_ID </th>
-                            <th id="th3"> NAME </th>
-                            <th id="th3"> MEDIUM </th>
-                              <th id="th3"> GENDER </th>
-                              <th id="th3"> DATE OF JOIN </th>
-                              <th id="th3"> SUBJECT </th>
-                              <th id="th3"> PHONE NUMBER </th>
-                              <th id="th3"> PRICE </th>
-                              <th id="th3"> DISCOUNT </th>
-                              <th id="th3"> TOTAL </th>
+{#                            <th id="th3"> STUD_ID </th>#}
+{#                            <th id="th3"> NAME </th>#}
+{#                            <th id="th3"> MEDIUM </th>#}
+{#                              <th id="th3"> GENDER </th>#}
+{#                              <th id="th3"> DATE OF JOIN </th>#}
+{#                              <th id="th3"> SUBJECT </th>#}
+{#                              <th id="th3"> PHONE NUMBER </th>#}
+{#                              <th id="th3"> PRICE </th>#}
+{#                              <th id="th3"> DISCOUNT </th>#}
+{#                              <th id="th3"> TOTAL </th>#}
                           </tr>
                         </thead>
                         <tbody>
-                          {% for eleven in data_eleven %}
-                          <tr id="tr3">
-                            <td id="td3">
-                                {{ eleven.STUDENT_ID }}
-                            </td>
-                            <td id="td3">
-                                {{ eleven.NAME }}
-                            </td>
-                            <td id="td3">
-                                {{ eleven.MEDIUM }}
-                            </td>
-                            <td id="td3">
-                                {{ eleven.GENDER }}
-                            </td>
-                              <td id="td3">
-                                  {{ eleven.JOIN_DATE }}
-                              </td>
-                            <td id="td3">
-                                {{ eleven.SUBJECT}}
-                            </td>
-                            <td id="td3">
-                                {{ eleven.PHONE_NUMBER}}
-                            </td>
-                            <td id="td3">
-                                {{ eleven.PRICE }}
-                            </td>
-                              <td id="td3">
-                                  {{ eleven.DISCOUNT }}
-                              </td>
-                              <td id="td3">
-                                  {{ eleven.TOTAL }}
-                              </td>
-                              </tr>
-                        {% endfor %}
+{#                          {% for i in eleven %}#}
+{#                          <tr id="tr3">#}
+{#                            <td id="td3">#}
+{#                                {{ eleven.STUDENT_ID }}#}
+{#                            </td>#}
+{#                            <td id="td3">#}
+{#                                {{ eleven.NAME }}#}
+{#                            </td>#}
+{#                            <td id="td3">#}
+{#                                {{ eleven.MEDIUM }}#}
+{#                            </td>#}
+{#                            <td id="td3">#}
+{#                                {{ eleven.GENDER }}#}
+{#                            </td>#}
+{#                              <td id="td3">#}
+{#                                  {{ eleven.JOIN_DATE }}#}
+{#                              </td>#}
+{#                            <td id="td3">#}
+{#                                {{ eleven.SUBJECT}}#}
+{#                            </td>#}
+{#                            <td id="td3">#}
+{#                                {{ eleven.PHONE_NUMBER}}#}
+{#                            </td>#}
+{#                            <td id="td3">#}
+{#                                {{ eleven.PRICE }}#}
+{#                            </td>#}
+{#                              <td id="td3">#}
+{#                                  {{ eleven.DISCOUNT }}#}
+{#                              </td>#}
+{#                              <td id="td3">#}
+{#                                  {{ eleven.TOTAL }}#}
+{#                              </td>#}
+{#                              </tr>#}
+{#                        {% endfor %}#}
                         <tr>
                             <td colspan="10" style="text-align: center">
                                 <button type="submit" class="btn btn-primary mr-2" onclick="tableToCSV3()">EXPORT</button>
@@ -407,55 +412,55 @@
                       <table id="table4" class="table table-dark">
                         <thead>
                           <tr id="tr4">
-                            <th id="th4"> STUD_ID </th>
-                            <th id="th4"> NAME </th>
-                            <th id="th4"> MEDIUM </th>
-                              <th id="th4"> GENDER </th>
-                              <th id="th4"> DATE OF JOIN </th>
-                              <th id="th4"> SUBJECT </th>
-                              <th id="th4"> PHONE NUMBER </th>
-                              <th id="th4"> PRICE </th>
-                              <th id="th4"> DISCOUNT </th>
-                              <th id="th4"> TOTAL </th>
+{#                            <th id="th4"> STUD_ID </th>#}
+{#                            <th id="th4"> NAME </th>#}
+{#                            <th id="th4"> MEDIUM </th>#}
+{#                              <th id="th4"> GENDER </th>#}
+{#                              <th id="th4"> DATE OF JOIN </th>#}
+{#                              <th id="th4"> SUBJECT </th>#}
+{#                              <th id="th4"> PHONE NUMBER </th>#}
+{#                              <th id="th4"> PRICE </th>#}
+{#                              <th id="th4"> DISCOUNT </th>#}
+{#                              <th id="th4"> TOTAL </th>#}
 
                           </tr>
                         </thead>
                         <tbody>
-                          {% for twelve in data_twelve %}
-                          <tr id="tr4">
-                            <td id="td4">
-                                {{ twelve.STUDENT_ID }}
-                            </td>
-                            <td id="td4">
-                                {{ twelve.NAME }}
-                            </td>
-                            <td id="td4">
-                                {{ twelve.MEDIUM }}
-                            </td>
-                            <td id="td4">
-                                {{ twelve.GENDER }}
-                            </td>
-                              <td id="td4">
-                                  {{ twelve.JOIN_DATE }}
-                              </td>
-                            <td id="td4">
-                                {{ twelve.SUBJECT}}
-                            </td>
-                            <td id="td4">
-                                {{ twelve.PHONE_NUMBER}}
-                            </td>
-                            <td id="td4">
-                                {{ twelve.PRICE }}
-                            </td>
-                              <td id="td4">
-                                  {{ twelve.DISCOUNT }}
-                              </td>
-                              <td id="td4">
-                                  {{ twelve.TOTAL }}
-                              </td>
-                              </tr>
-                        {% endfor %}
-                           <tr>
+{#                          {% for twelve in data_twelve %}#}
+{#                          <tr id="tr4">#}
+{#                            <td id="td4">#}
+{#                                {{ twelve.STUDENT_ID }}#}
+{#                            </td>#}
+{#                            <td id="td4">#}
+{#                                {{ twelve.NAME }}#}
+{#                            </td>#}
+{#                            <td id="td4">#}
+{#                                {{ twelve.MEDIUM }}#}
+{#                            </td>#}
+{#                            <td id="td4">#}
+{#                                {{ twelve.GENDER }}#}
+{#                            </td>#}
+{#                              <td id="td4">#}
+{#                                  {{ twelve.JOIN_DATE }}#}
+{#                              </td>#}
+{#                            <td id="td4">#}
+{#                                {{ twelve.SUBJECT}}#}
+{#                            </td>#}
+{#                            <td id="td4">#}
+{#                                {{ twelve.PHONE_NUMBER}}#}
+{#                            </td>#}
+{#                            <td id="td4">#}
+{#                                {{ twelve.PRICE }}#}
+{#                            </td>#}
+{#                              <td id="td4">#}
+{#                                  {{ twelve.DISCOUNT }}#}
+{#                              </td>#}
+{#                              <td id="td4">#}
+{#                                  {{ twelve.TOTAL }}#}
+{#                              </td>#}
+{#                              </tr>#}
+{#                        {% endfor %}#}
+{#                           <tr>#}
                             <td colspan="10" style="text-align: center">
                                 <button type="submit" class="btn btn-primary mr-2" onclick="tableToCSV4()">EXPORT</button>
                             </td>
