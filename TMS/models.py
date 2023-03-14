@@ -68,6 +68,7 @@ class IXPayment(models.Model):
     DATE_OF_PAYMENT = models.CharField(max_length=100)
     NET_AMOUNT_PAID = models.CharField(max_length=100)
     MODE_OF_PAYMENT = models.CharField(max_length=100)
+    SUBJECT = models.CharField(max_length=100)
 
     def __str__(self):
         return self.NAME
@@ -80,6 +81,7 @@ class XPayment(models.Model):
     DATE_OF_PAYMENT = models.CharField(max_length=100)
     NET_AMOUNT_PAID = models.CharField(max_length=100)
     MODE_OF_PAYMENT = models.CharField(max_length=100)
+    SUBJECT = models.CharField(max_length=100)
 
     def __str__(self):
         return self.NAME
@@ -92,6 +94,7 @@ class XIPayment(models.Model):
     DATE_OF_PAYMENT = models.CharField(max_length=100)
     NET_AMOUNT_PAID = models.CharField(max_length=100)
     MODE_OF_PAYMENT = models.CharField(max_length=100)
+    SUBJECT = models.CharField(max_length=100)
 
     def __str__(self):
         return self.NAME
@@ -104,6 +107,7 @@ class XIIPayment(models.Model):
     DATE_OF_PAYMENT = models.CharField(max_length=100)
     NET_AMOUNT_PAID = models.CharField(max_length=100)
     MODE_OF_PAYMENT = models.CharField(max_length=100)
+    SUBJECT = models.CharField(max_length=100)
 
     def __str__(self):
         return self.NAME

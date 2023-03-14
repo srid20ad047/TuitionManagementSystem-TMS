@@ -227,9 +227,13 @@
                       <table class="table table-dark" id="table1">
                         <thead>
                           <tr id="tr1">
-                              {% for data in nine %}
+                          <input type="month" id="month" name="month" value="2023-01" min="2022-01" max="2023-12" >
+                          <th>
+                              NAME
+                          </th>
+                              {% for data in nine_date %}
                             <th>
-                                {{ data.DATE }}
+                                {{ data }}
                             </th>
 
                               {% endfor %}
@@ -238,9 +242,7 @@
                         <tbody>
                         {% for data in nine %}
                           <tr id="tr1">
-                            <td id="td1">
-                                {{ data.STUDENT_ID }}
-                            </td>
+
                           <td>
                                 {{ data.NAME }}
                           </td>

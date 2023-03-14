@@ -310,7 +310,7 @@
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">NET AMOUNT PAID</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="net_amount_paid">
+                              <input type="text" class="form-control" name="net_amount_paid" id="amount">
                             </div>
                           </div>
                         </div>
@@ -329,6 +329,16 @@
                           </div>
                         </div>
                       </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">SUBJECT</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="subject" id="subject">
+                            </div>
+                          </div>
+                        </div>
+                        </div>
                         <br>
                         <div style="position: relative;height: 70px;width: 100%;">
                             <div style="position:absolute;bottom:25%;right: 50%;">
@@ -394,18 +404,19 @@
         {{ amount4 }}
     </div>
 
-{#    <div type="text" style="display: none" id="value19">#}
-{#        {{ stud_id1 }}#}
-{#    </div>#}
-{#    <div type="text" style="display: none" id="value110">#}
-{#        {{ stud_id2 }}#}
-{#    </div>#}
-{#    <div type="text" style="display: none" id="value111">#}
-{#        {{ stud_id3 }}#}
-{#    </div>#}
-{#    <div type="text" style="display: none" id="value112">#}
-{#        {{ stud_id4 }}#}
-{#    </div>#}
+    <div type="text" style="display: none" id="subject1">
+        {{ subject1 }}
+    </div>
+    <div type="text" style="display: none" id="subject2">
+        {{ subject2 }}
+    </div>
+    <div type="text" style="display: none" id="subject3">
+        {{ subject3 }}
+</div>
+    <div type="text" style="display: none" id="subject4">
+        {{ subject4 }}
+    </div>
+
 
 
 
@@ -480,16 +491,32 @@
             ides1 = ides1.replaceAll(" ", "").slice(3, -3).split("','");
             console.log(ides1)
 
-            let key1 = "amount" + n.toString();
+            let key1 = "value" + n.toString();
             let value1 = document.getElementById(key1).innerText;
             {#console.log(value1)#}
             value1 = value1.replaceAll(" ", "").slice(3, -3).split("','");
 
             console.log(value1)
             let k1=value1.indexOf(res_value1);
+            console.log(k1)
             document.getElementById("amount").value=ides1[k1];
 
 
+
+            let res_value3 = document.getElementById("name_selector").value;
+            let ides3=document.getElementById("subject"+(n-8).toString()).innerText;
+            ides3 = ides3.replaceAll(" ", "").slice(3, -3).split("','");
+            console.log(ides3)
+
+            let key3 = "value" + n.toString();
+            let value3 = document.getElementById(key3).innerText;
+            {#console.log(value1)#}
+            value3 = value3.replaceAll(" ", "").slice(3, -3).split("','");
+
+            console.log(value3)
+            let k3=value3.indexOf(res_value3);
+            console.log(k3)
+            document.getElementById("subject").value=ides3[k3];
 
 
         }
