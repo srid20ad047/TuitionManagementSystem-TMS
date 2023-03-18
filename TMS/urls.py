@@ -14,4 +14,5 @@ urlpatterns = [
     path('attendance/<slug:title>',views.attendance_call, name='attendance'),
     path('payment', views.payment, name='payment'),
     path('attendanceReport', views.attendanceReport, name='attendanceReport'),
+    # path('home', views.home, name='home'),
 ]

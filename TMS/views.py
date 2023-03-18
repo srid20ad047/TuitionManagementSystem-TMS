@@ -78,6 +78,8 @@ def payment(request):
         DATE_OF_PAYMENT = request.POST.get('date_of_payment')
         NET_AMOUNT_PAID = request.POST.get('net_amount_paid')
         MODE_OF_PAYMENT = request.POST.get('mode_of_payment')
+        STUDENT_ID = request.POST.get('student_id')
+        SUBJECT = request.POST.get('subject')
 
         if (CLASS == "9th"):
             if IXPayment.objects.count() < 10:
@@ -86,14 +88,14 @@ def payment(request):
                 PAYMENT_ID = "IX-FEE-" + month + "0" + str(IXPayment.objects.count() + 1)
                 det = IXPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,
                                 NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT,
-                                PAYMENT_RECEIPT_ID=PAYMENT_ID)
+                                PAYMENT_RECEIPT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
                 det.save()
             elif IXPayment.objects.count() >= 10:
                 date = datetime.strptime(DATE_OF_PAYMENT, "%Y-%m-%d")
                 month = date.strftime("%b")
                 PAYMENT_ID = "IX-FEE-" + month + str(IXPayment.objects.count() + 1)
                 det = IXPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,
-                                NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID)
+                                NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
                 det.save()
 
 
@@ -103,14 +105,14 @@ def payment(request):
                 month = date.strftime("%b")
                 PAYMENT_ID = "X-FEE-" + month + "0" + str(XPayment.objects.count() + 1)
                 det = XPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT, NET_AMOUNT_PAID=NET_AMOUNT_PAID,
-                               MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_RECEIPT_ID=PAYMENT_ID)
+                               MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_RECEIPT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
                 det.save()
             elif XPayment.objects.count() >= 10:
                 date = datetime.strptime(DATE_OF_PAYMENT, "%Y-%m-%d")
                 month = date.strftime("%b")
                 PAYMENT_ID = "X-FEE-" + month + str(XPayment.objects.count() + 1)
                 det = XPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT, NET_AMOUNT_PAID=NET_AMOUNT_PAID,
-                               MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID)
+                               MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
                 det.save()
 
 
@@ -122,14 +124,14 @@ def payment(request):
                 PAYMENT_ID = "XI-FEE-" + month + "0" + str(XIPayment.objects.count() + 1)
                 det = XIPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,
                                 NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT,
-                                PAYMENT_RECEIPT_ID=PAYMENT_ID)
+                                PAYMENT_RECEIPT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
                 det.save()
             elif XIPayment.objects.count() >= 10:
                 date = datetime.strptime(DATE_OF_PAYMENT, "%Y-%m-%d")
                 month = date.strftime("%b")
                 PAYMENT_ID = "XI-FEE-" + month + str(XIPayment.objects.count() + 1)
                 det = XIPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,
-                                NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID)
+                                NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
                 det.save()
 
         if (CLASS == "12th"):
@@ -139,7 +141,7 @@ def payment(request):
                 PAYMENT_ID = "XII-FEE-" + month + "0" + str(XIIPayment.objects.count() + 1)
                 det = XIIPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,
                                  NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT,
-                                 PAYMENT_RECEIPT_ID=PAYMENT_ID)
+                                 PAYMENT_RECEIPT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
                 det.save()
             elif XIIPayment.objects.count() >= 10:
                 date = datetime.strptime(DATE_OF_PAYMENT, "%Y-%m-%d")
@@ -147,7 +149,7 @@ def payment(request):
                 PAYMENT_ID = "XII-FEE-" + month + str(XIIPayment.objects.count() + 1)
                 det = XIIPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,
                                  NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT,
-                                 PAYMENT_ID=PAYMENT_ID)
+                                 PAYMENT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
                 det.save()
 
         return render(request, 'tms/payment.html')
@@ -155,40 +157,57 @@ def payment(request):
     data = NinthClass.objects.all()
     val1 = []
     id1= []
+    subject1 = []
+    amount1 = []
+
     for i in data:
         id1.append(i.STUDENT_ID)
         val1.append(i.NAME)
+        subject1.append(i.SUBJECT)
+        amount1.append(i.TOTAL)
     print(val1)
 
     data = TenthClass.objects.all()
     val2 = []
     id2 = []
+    amount2 = []
+    subject2 = []
     for i in data:
         id2.append(i.STUDENT_ID)
         val2.append(i.NAME)
+        subject2.append(i.SUBJECT)
+        amount2.append(i.TOTAL)
     print(val2)
 
 
     data = EleventhClass.objects.all()
     val3 = []
     id3 = []
+    amount3 = []
+    subject3 = []
     for i in data:
         id3.append(i.STUDENT_ID)
         val3.append(i.NAME)
+        subject3.append(i.SUBJECT)
+        amount3.append(i.TOTAL)
     print(val3)
 
 
     data = TwelvethClass.objects.all()
     val4 = []
     id4 = []
+    amount4 = []
+    subject4 = []
     for i in data:
         id4.append(i.STUDENT_ID)
         val4.append(i.NAME)
+        subject4.append(i.SUBJECT)
+        amount4.append(i.TOTAL)
     print(val4)
 
 
 
-    return render(request, 'tms/payment.html',{'data': data, 'val1': val1, 'val2': val2, 'val3': val3, 'val4': val4,'id1': id1, 'id2': id2, 'id3': id3, 'id4': id4})
+    return render(request, 'tms/payment.html',{'data': data, 'val1': val1, 'val2': val2, 'val3': val3, 'val4': val4,'id1': id1, 'id2': id2, 'id3': id3, 'id4': id4,'amount1': amount1, 'amount2': amount2, 'amount3': amount3, 'amount4': amount4,'subject1': subject1, 'subject2': subject2, 'subject3': subject3, 'subject4': subject4})
 
 
 def register(request):
