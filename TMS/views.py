@@ -95,7 +95,7 @@ def payment(request):
                 month = date.strftime("%b")
                 PAYMENT_ID = "IX-FEE-" + month + str(IXPayment.objects.count() + 1)
                 det = IXPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,
-                                NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
+                                NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_RECEIPT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
                 det.save()
 
 
@@ -112,7 +112,7 @@ def payment(request):
                 month = date.strftime("%b")
                 PAYMENT_ID = "X-FEE-" + month + str(XPayment.objects.count() + 1)
                 det = XPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT, NET_AMOUNT_PAID=NET_AMOUNT_PAID,
-                               MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
+                               MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_RECEIPT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
                 det.save()
 
 
@@ -131,7 +131,7 @@ def payment(request):
                 month = date.strftime("%b")
                 PAYMENT_ID = "XI-FEE-" + month + str(XIPayment.objects.count() + 1)
                 det = XIPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,
-                                NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
+                                NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT, PAYMENT_RECEIPT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
                 det.save()
 
         if (CLASS == "12th"):
@@ -149,7 +149,7 @@ def payment(request):
                 PAYMENT_ID = "XII-FEE-" + month + str(XIIPayment.objects.count() + 1)
                 det = XIIPayment(NAME=NAME, CLASS=CLASS, DATE_OF_PAYMENT=DATE_OF_PAYMENT,
                                  NET_AMOUNT_PAID=NET_AMOUNT_PAID, MODE_OF_PAYMENT=MODE_OF_PAYMENT,
-                                 PAYMENT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
+                                 PAYMENT_RECEIPT_ID=PAYMENT_ID, STUD_ID=STUDENT_ID, SUBJECT=SUBJECT)
                 det.save()
 
         return render(request, 'tms/payment.html')
