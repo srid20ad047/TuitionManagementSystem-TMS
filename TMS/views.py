@@ -22,9 +22,9 @@ def loginUser(request):
             login(request, curr_user)
             return redirect('index')
         else:
-            return render(request, 'tms/pages/samples/login.html')
+            return render(request, 'tms/login.html')
     else:
-        return render(request, 'tms/pages/samples/login.html')
+        return render(request, 'tms/login.html')
 
 
 def logoutUser(request):
