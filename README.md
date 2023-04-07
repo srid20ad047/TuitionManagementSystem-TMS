@@ -25,11 +25,6 @@ The system tracks the payment details of each student, including the amount paid
 
 The system has an attendance sheet that records the student's attendance. The attendance sheet is like an Excel sheet, and it records the student's attendance by date and status. This feature allows tuition center staff to easily monitor the attendance of each student and generate reports on attendance records.
 
-# Conclusion:
-
-The Tuition Management System is a powerful and user-friendly web application that makes it easy for tuition centers to manage student records, fees payment details, attendance records, and registration forms. With its intuitive interface and advanced features, the system is an essential tool for any tuition center looking to streamline its operations and improve its efficiency. The ability to display student data and payment details on dynamic webpages makes it easier than ever for staff members to manage and monitor student information, ultimately improving the overall performance of the tuition center.
-
-
 # LOGIN PAGE :-
 
 
@@ -45,6 +40,10 @@ The Tuition Management System is a powerful and user-friendly web application th
 # STUDENT PAYMENT RECEIPT PAGE :-
 
 ![14](https://user-images.githubusercontent.com/98053650/229567227-641f0980-b4ff-47cb-be78-8ab51e80203a.png)
+
+# Conclusion:
+
+The Tuition Management System is a powerful and user-friendly web application that makes it easy for tuition centers to manage student records, fees payment details, attendance records, and registration forms. With its intuitive interface and advanced features, the system is an essential tool for any tuition center looking to streamline its operations and improve its efficiency. The ability to display student data and payment details on dynamic webpages makes it easier than ever for staff members to manage and monitor student information, ultimately improving the overall performance of the tuition center.
 
 # WEBSITE LINK :-
 
